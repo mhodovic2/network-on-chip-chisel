@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/patmos/Desktop/network-on-chip-chisel/src/main/scala/MeshRX.scala:3:7: class MeshRX needs to be abstract, since method io in class LegacyModule of type => chisel3.core.Record is not defined[0m
+[0m[[0m[31merror[0m] [0m[0mclass MeshRX extends Module{[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
