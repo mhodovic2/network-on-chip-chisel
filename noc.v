@@ -1,79 +1,37 @@
-module noc( // @[:@3.2]
-  input   clock, // @[:@4.4]
-  input   reset, // @[:@5.4]
-  output  io_led // @[:@6.4]
+module Router( // @[:@43.2]
+  input         clock, // @[:@44.4]
+  input         reset, // @[:@45.4]
+  output [31:0] io_out_U // @[:@46.4]
 );
-  reg [31:0] cntReg; // @[noc.scala 20:23:@8.4]
-  reg [31:0] _RAND_0;
-  reg  blkReg; // @[noc.scala 21:23:@9.4]
-  reg [31:0] _RAND_1;
-  wire [32:0] _T_12; // @[noc.scala 23:20:@10.4]
-  wire [31:0] _T_13; // @[noc.scala 23:20:@11.4]
-  wire  _T_14; // @[noc.scala 24:15:@13.4]
-  wire  _T_16; // @[noc.scala 26:15:@16.6]
-  wire [31:0] _GEN_0; // @[noc.scala 24:28:@14.4]
-  wire  _GEN_1; // @[noc.scala 24:28:@14.4]
-  assign _T_12 = cntReg + 32'h1; // @[noc.scala 23:20:@10.4]
-  assign _T_13 = _T_12[31:0]; // @[noc.scala 23:20:@11.4]
-  assign _T_14 = cntReg == 32'h17d783f; // @[noc.scala 24:15:@13.4]
-  assign _T_16 = ~ blkReg; // @[noc.scala 26:15:@16.6]
-  assign _GEN_0 = _T_14 ? 32'h0 : _T_13; // @[noc.scala 24:28:@14.4]
-  assign _GEN_1 = _T_14 ? _T_16 : blkReg; // @[noc.scala 24:28:@14.4]
-  assign io_led = blkReg; // @[noc.scala 28:10:@19.4]
-`ifdef RANDOMIZE_GARBAGE_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_INVALID_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_REG_INIT
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-`define RANDOMIZE
-`endif
-`ifndef RANDOM
-`define RANDOM $random
-`endif
-`ifdef RANDOMIZE
-  integer initvar;
-  initial begin
-    `ifdef INIT_RANDOM
-      `INIT_RANDOM
-    `endif
-    `ifndef VERILATOR
-      `ifdef RANDOMIZE_DELAY
-        #`RANDOMIZE_DELAY begin end
-      `else
-        #0.002 begin end
-      `endif
-    `endif
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_0 = {1{`RANDOM}};
-  cntReg = _RAND_0[31:0];
-  `endif // RANDOMIZE_REG_INIT
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_1 = {1{`RANDOM}};
-  blkReg = _RAND_1[0:0];
-  `endif // RANDOMIZE_REG_INIT
-  end
-`endif // RANDOMIZE
+  wire  _T_25; // @[Router.scala 97:9:@79.4]
+  assign _T_25 = reset == 1'h0; // @[Router.scala 97:9:@79.4]
+  assign io_out_U = 32'h0; // @[Router.scala 45:12:@70.4 Router.scala 50:12:@74.4]
   always @(posedge clock) begin
-    if (reset) begin
-      cntReg <= 32'h0;
-    end else begin
-      if (_T_14) begin
-        cntReg <= 32'h0;
-      end else begin
-        cntReg <= _T_13;
+    `ifndef SYNTHESIS
+    `ifdef PRINTF_COND
+      if (`PRINTF_COND) begin
+    `endif
+        if (_T_25) begin
+          $fwrite(32'h80000002,"data into router N port is %x\n",io_out_U); // @[Router.scala 97:9:@81.6]
+        end
+    `ifdef PRINTF_COND
       end
-    end
-    if (reset) begin
-      blkReg <= 1'h0;
-    end else begin
-      if (_T_14) begin
-        blkReg <= _T_16;
-      end
-    end
+    `endif
+    `endif // SYNTHESIS
   end
+endmodule
+module noc( // @[:@84.2]
+  input   clock, // @[:@85.4]
+  input   reset // @[:@86.4]
+);
+  wire  router1_clock; // @[noc.scala 24:23:@89.4]
+  wire  router1_reset; // @[noc.scala 24:23:@89.4]
+  wire [31:0] router1_io_out_U; // @[noc.scala 24:23:@89.4]
+  Router router1 ( // @[noc.scala 24:23:@89.4]
+    .clock(router1_clock),
+    .reset(router1_reset),
+    .io_out_U(router1_io_out_U)
+  );
+  assign router1_clock = clock; // @[:@90.4]
+  assign router1_reset = reset; // @[:@91.4]
 endmodule

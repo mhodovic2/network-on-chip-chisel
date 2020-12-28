@@ -4,6 +4,17 @@
     <option name="customVMPath" />
     <option name="linkedExternalProjectsSettings">
       <SbtProjectSettings>
+        <option name="externalProjectPath" value="$USER_HOME$/chisel-examples" />
+        <option name="modules">
+          <set>
+            <option value="$USER_HOME$/chisel-examples" />
+            <option value="$USER_HOME$/chisel-examples/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.2.8" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </SbtProjectSettings>
+      <SbtProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
