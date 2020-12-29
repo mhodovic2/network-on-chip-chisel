@@ -12,6 +12,7 @@ class MeshTX extends Module{
 
   val registar = WireInit(0.U(io.size.W))
   io.dout := registar
-  printf("data into router N port is %x\n",io.dout)
+
+  //println("data into router N port is %x\n",io.dout)
 
 }

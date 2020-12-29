@@ -11,5 +11,6 @@ resolvers ++= Seq(
 )
 
 libraryDependencies += "edu.berkeley.cs" %% "chisel3" % "3.1.3"
+libraryDependencies += "edu.berkeley.cs" %% "chisel-iotesters" % "1.3.2"
 
 // libraryDependencies += "edu.berkeley.cs" %% "chisel3" % "latest.release"

@@ -1,8 +1,4 @@
-/*
- * This code is a minimal hardware described in Chisel.
- *
- * Blinking LED: the FPGA version of Hello World
- */
+package noc
 
 import chisel3._
 import chisel3.Driver
@@ -12,7 +8,6 @@ import router.{Router}
 class noc extends MultiIOModule {
   val io = IO(new Bundle{
     val size = 32
-
   })
 
   val router1 = Module(new Router())
@@ -40,6 +35,8 @@ class noc extends MultiIOModule {
   router4.io.in_D := router2.io.out_U
   router4.io.in_L := router3.io.out_R
   router4.io.in_R := router3.io.out_L
+
+  println("Router data in is %x\n", router1.io.in_U)
 }
 
 object noc extends App {

@@ -1,4 +1,4 @@
-[warn] scala-library-2.11.7-sources.jar no longer exists at /home/patmos/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.7/scala-library-2.11.7-sources.jar
-[debug] not up to date. inChanged = false, force = false
-[debug] Updating ProjectRef(uri("file:/home/patmos/network-on-chip-chisel/"), "network-on-chip-chisel")...
-[debug] Done updating ProjectRef(uri("file:/home/patmos/network-on-chip-chisel/"), "network-on-chip-chisel")
+[debug] not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/home/patmos/Documents/network-on-chip-chisel/"), "network-on-chip-chisel")...
+[debug] Done updating ProjectRef(uri("file:/home/patmos/Documents/network-on-chip-chisel/"), "network-on-chip-chisel")
+[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.

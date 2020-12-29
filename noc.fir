@@ -1,88 +1,68 @@
-;buildInfoPackage: chisel3, version: 3.1.3, scalaVersion: 2.11.12, sbtVersion: 1.1.1, builtAtString: 2018-09-12 19:37:29.007, builtAtMillis: 1536781049007
+;buildInfoPackage: chisel3, version: 3.2.2, scalaVersion: 2.11.12, sbtVersion: 1.3.2
 circuit noc : 
   module MeshRX : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_1 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_2 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_3 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshTX : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_1 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_2 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_3 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module Router : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip in_U : UInt<32>, flip in_D : UInt<32>, flip in_L : UInt<32>, flip in_R : UInt<32>, out_U : UInt<32>, out_D : UInt<32>, out_L : UInt<32>, out_R : UInt<32>}
     
     inst meshRX_U of MeshRX @[Router.scala 22:24]
@@ -117,95 +97,75 @@ circuit noc :
     io.out_D <= meshTX_D.io.dout @[Router.scala 42:12]
     io.out_L <= meshTX_L.io.dout @[Router.scala 43:12]
     io.out_R <= meshTX_R.io.dout @[Router.scala 44:12]
-    node _T_21 = bits(reset, 0, 0) @[Router.scala 46:9]
-    node _T_23 = eq(_T_21, UInt<1>("h00")) @[Router.scala 46:9]
-    when _T_23 : @[Router.scala 46:9]
+    node _T = asUInt(reset) @[Router.scala 46:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 46:9]
+    when _T_1 : @[Router.scala 46:9]
       printf(clock, UInt<1>(1), "data into router N port is %x\n", io.out_U) @[Router.scala 46:9]
       skip @[Router.scala 46:9]
     
   module MeshRX_4 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_5 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_6 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_7 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshTX_4 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_5 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_6 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_7 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module Router_1 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip in_U : UInt<32>, flip in_D : UInt<32>, flip in_L : UInt<32>, flip in_R : UInt<32>, out_U : UInt<32>, out_D : UInt<32>, out_L : UInt<32>, out_R : UInt<32>}
     
     inst meshRX_U of MeshRX_4 @[Router.scala 22:24]
@@ -240,95 +200,75 @@ circuit noc :
     io.out_D <= meshTX_D.io.dout @[Router.scala 42:12]
     io.out_L <= meshTX_L.io.dout @[Router.scala 43:12]
     io.out_R <= meshTX_R.io.dout @[Router.scala 44:12]
-    node _T_21 = bits(reset, 0, 0) @[Router.scala 46:9]
-    node _T_23 = eq(_T_21, UInt<1>("h00")) @[Router.scala 46:9]
-    when _T_23 : @[Router.scala 46:9]
+    node _T = asUInt(reset) @[Router.scala 46:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 46:9]
+    when _T_1 : @[Router.scala 46:9]
       printf(clock, UInt<1>(1), "data into router N port is %x\n", io.out_U) @[Router.scala 46:9]
       skip @[Router.scala 46:9]
     
   module MeshRX_8 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_9 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_10 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_11 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshTX_8 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_9 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_10 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_11 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module Router_2 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip in_U : UInt<32>, flip in_D : UInt<32>, flip in_L : UInt<32>, flip in_R : UInt<32>, out_U : UInt<32>, out_D : UInt<32>, out_L : UInt<32>, out_R : UInt<32>}
     
     inst meshRX_U of MeshRX_8 @[Router.scala 22:24]
@@ -363,95 +303,75 @@ circuit noc :
     io.out_D <= meshTX_D.io.dout @[Router.scala 42:12]
     io.out_L <= meshTX_L.io.dout @[Router.scala 43:12]
     io.out_R <= meshTX_R.io.dout @[Router.scala 44:12]
-    node _T_21 = bits(reset, 0, 0) @[Router.scala 46:9]
-    node _T_23 = eq(_T_21, UInt<1>("h00")) @[Router.scala 46:9]
-    when _T_23 : @[Router.scala 46:9]
+    node _T = asUInt(reset) @[Router.scala 46:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 46:9]
+    when _T_1 : @[Router.scala 46:9]
       printf(clock, UInt<1>(1), "data into router N port is %x\n", io.out_U) @[Router.scala 46:9]
       skip @[Router.scala 46:9]
     
   module MeshRX_12 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_13 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_14 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshRX_15 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip din : UInt<32>}
     
     
   module MeshTX_12 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_13 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_14 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module MeshTX_15 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {dout : UInt<32>}
     
     wire registar : UInt<32>
     registar <= UInt<32>("h00")
     io.dout <= registar @[MeshTX.scala 14:11]
-    node _T_9 = bits(reset, 0, 0) @[MeshTX.scala 15:9]
-    node _T_11 = eq(_T_9, UInt<1>("h00")) @[MeshTX.scala 15:9]
-    when _T_11 : @[MeshTX.scala 15:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.dout) @[MeshTX.scala 15:9]
-      skip @[MeshTX.scala 15:9]
     
   module Router_3 : 
     input clock : Clock
-    input reset : UInt<1>
+    input reset : Reset
     output io : {flip in_U : UInt<32>, flip in_D : UInt<32>, flip in_L : UInt<32>, flip in_R : UInt<32>, out_U : UInt<32>, out_D : UInt<32>, out_L : UInt<32>, out_R : UInt<32>}
     
     inst meshRX_U of MeshRX_12 @[Router.scala 22:24]
@@ -486,9 +406,9 @@ circuit noc :
     io.out_D <= meshTX_D.io.dout @[Router.scala 42:12]
     io.out_L <= meshTX_L.io.dout @[Router.scala 43:12]
     io.out_R <= meshTX_R.io.dout @[Router.scala 44:12]
-    node _T_21 = bits(reset, 0, 0) @[Router.scala 46:9]
-    node _T_23 = eq(_T_21, UInt<1>("h00")) @[Router.scala 46:9]
-    when _T_23 : @[Router.scala 46:9]
+    node _T = asUInt(reset) @[Router.scala 46:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 46:9]
+    when _T_1 : @[Router.scala 46:9]
       printf(clock, UInt<1>(1), "data into router N port is %x\n", io.out_U) @[Router.scala 46:9]
       skip @[Router.scala 46:9]
     
@@ -497,32 +417,32 @@ circuit noc :
     input reset : UInt<1>
     output io : {}
     
-    inst router1 of Router @[noc.scala 18:23]
+    inst router1 of Router @[noc.scala 13:23]
     router1.clock <= clock
     router1.reset <= reset
-    inst router2 of Router_1 @[noc.scala 19:23]
+    inst router2 of Router_1 @[noc.scala 14:23]
     router2.clock <= clock
     router2.reset <= reset
-    inst router3 of Router_2 @[noc.scala 20:23]
+    inst router3 of Router_2 @[noc.scala 15:23]
     router3.clock <= clock
     router3.reset <= reset
-    inst router4 of Router_3 @[noc.scala 21:23]
+    inst router4 of Router_3 @[noc.scala 16:23]
     router4.clock <= clock
     router4.reset <= reset
-    router1.io.in_U <= router3.io.out_D @[noc.scala 24:19]
-    router1.io.in_D <= router3.io.out_U @[noc.scala 25:19]
-    router1.io.in_L <= router2.io.out_R @[noc.scala 26:19]
-    router1.io.in_R <= router2.io.out_L @[noc.scala 27:19]
-    router2.io.in_U <= router4.io.out_D @[noc.scala 29:19]
-    router2.io.in_D <= router4.io.out_U @[noc.scala 30:19]
-    router2.io.in_L <= router1.io.out_R @[noc.scala 31:19]
-    router2.io.in_R <= router1.io.out_L @[noc.scala 32:19]
-    router3.io.in_U <= router1.io.out_D @[noc.scala 34:19]
-    router3.io.in_D <= router1.io.out_U @[noc.scala 35:19]
-    router3.io.in_L <= router4.io.out_R @[noc.scala 36:19]
-    router3.io.in_R <= router4.io.out_L @[noc.scala 37:19]
-    router4.io.in_U <= router2.io.out_D @[noc.scala 39:19]
-    router4.io.in_D <= router2.io.out_U @[noc.scala 40:19]
-    router4.io.in_L <= router3.io.out_R @[noc.scala 41:19]
-    router4.io.in_R <= router3.io.out_L @[noc.scala 42:19]
+    router1.io.in_U <= router3.io.out_D @[noc.scala 19:19]
+    router1.io.in_D <= router3.io.out_U @[noc.scala 20:19]
+    router1.io.in_L <= router2.io.out_R @[noc.scala 21:19]
+    router1.io.in_R <= router2.io.out_L @[noc.scala 22:19]
+    router2.io.in_U <= router4.io.out_D @[noc.scala 24:19]
+    router2.io.in_D <= router4.io.out_U @[noc.scala 25:19]
+    router2.io.in_L <= router1.io.out_R @[noc.scala 26:19]
+    router2.io.in_R <= router1.io.out_L @[noc.scala 27:19]
+    router3.io.in_U <= router1.io.out_D @[noc.scala 29:19]
+    router3.io.in_D <= router1.io.out_U @[noc.scala 30:19]
+    router3.io.in_L <= router4.io.out_R @[noc.scala 31:19]
+    router3.io.in_R <= router4.io.out_L @[noc.scala 32:19]
+    router4.io.in_U <= router2.io.out_D @[noc.scala 34:19]
+    router4.io.in_D <= router2.io.out_U @[noc.scala 35:19]
+    router4.io.in_L <= router3.io.out_R @[noc.scala 36:19]
+    router4.io.in_R <= router3.io.out_L @[noc.scala 37:19]
     
