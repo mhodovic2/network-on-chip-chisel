@@ -1,23 +1,62 @@
-[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /home/patmos/network-on-chip-chisel/target/scala-2.11/classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$delayedInit$body.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$4.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$6.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$4.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$7.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$8.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$delayedInit$body.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$4.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$6.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$4.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$7.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$8.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$delayedInit$body.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$4.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$2.class[0m
-[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /home/patmos/network-on-chip-chisel/target/scala-2.11/classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$6.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$4.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$7.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Router$$anonfun$8.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes.bak[0m
