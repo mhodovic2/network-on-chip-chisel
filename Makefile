@@ -2,4 +2,4 @@ SBT = sbt
 
 # Generate Verilog code
 hdl:
-	$(SBT) "runMain noc"
+	$(SBT) "runMain noc.noc"

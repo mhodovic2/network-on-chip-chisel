@@ -4,7 +4,6 @@ import chisel3._
 import chisel3.iotesters._
 
 class nocTest(dut:noc) extends PeekPokeTester(dut) {
-  poke(dut.router1.io.out_R, value=2.U(32.W))
   step(1)
   println("Result is: " + peek(dut.router2.io.in_L).toString())
   step(1)
