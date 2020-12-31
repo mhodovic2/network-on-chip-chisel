@@ -1,24 +1,19 @@
 [
   {
-    "class":"logger.LogLevelAnnotation",
-    "globalLogLevel":{
-      
-    }
-  },
-  {
-    "class":"firrtl.EmitCircuitAnnotation",
-    "emitter":"firrtl.VerilogEmitter"
+    "class":"firrtl.options.OutputAnnotationFileAnnotation",
+    "file":"noc"
   },
   {
     "class":"firrtl.options.TargetDirAnnotation",
     "directory":"."
   },
   {
-    "class":"firrtl.options.OutputAnnotationFileAnnotation",
-    "file":"noc"
+    "class":"chisel3.stage.phases.DriverCompatibility$RunFirrtlCompilerAnnotation$"
   },
   {
-    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"."
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
   }
 ]
