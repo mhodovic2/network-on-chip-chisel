@@ -92,12 +92,20 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/xbar/XBar.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$7.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$7.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$10.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$10.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc/noc$delayedInit$body.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$delayedInit$body.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$5.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$8.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$8.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$9.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$9.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$4.class[0m
@@ -110,4 +118,6 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$3.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	noc/noc$$anonfun$6.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/classes/noc/noc$$anonfun$6.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
