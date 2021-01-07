@@ -26,11 +26,13 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
     val in_D = new RX()
     val in_L = new RX()
     val in_R = new RX()
+    val in_CPU = new RX()
 
     val out_U = new TX()
     val out_D = new TX()
     val out_L = new TX()
     val out_R = new TX()
+    val out_CPU = new TX()
 
     val x = Input(UInt(2.W))
     val y = Input(UInt(2.W))
@@ -45,16 +47,19 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
   val out_D_dout = WireInit(0.U(size.W))
   val out_L_dout = WireInit(0.U(size.W))
   val out_R_dout = WireInit(0.U(size.W))
+  val out_CPU_dout = WireInit(0.U(size.W))
 
   io.out_U.dout := out_U_dout
   io.out_D.dout := out_D_dout
   io.out_L.dout := out_L_dout
   io.out_R.dout := out_R_dout
+  io.out_CPU.dout := out_CPU_dout
 
   io.out_U.write := 0.U
   io.out_D.write := 0.U
   io.out_L.write := 0.U
   io.out_R.write := 0.U
+  io.out_CPU.write := 0.U
 
  // val empty :: full :: Nil = Enum(2)
   //val stateReg = RegInit(empty)
@@ -64,6 +69,7 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
   val dataReg_D = RegInit(0.U(size.W))
   val dataReg_L = RegInit(0.U(size.W))
   val dataReg_R = RegInit(0.U(size.W))
+  val dataReg_CPU = RegInit(0.U(size.W))
 
 
     when (io.in_U.read) {
@@ -80,6 +86,8 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
           io.out_D.write := 1.U
         } .elsewhen(destination_y < io.y) {
           io.out_U.write := 1.U
+        } .otherwise {
+          io.out_CPU.write := 1.U
         }
       }
 
@@ -89,7 +97,11 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
         io.out_L.dout := dataReg_U
       }.elsewhen(io.out_R.write) {
         io.out_R.dout := dataReg_U
+      }.elsewhen(io.out_CPU.write) {
+        io.out_CPU.dout := dataReg_CPU
       }
+
+
 
     } .elsewhen(io.in_D.read) {
       dataReg_D := io.in_D.din
@@ -104,6 +116,8 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
           io.out_D.write := 1.U
         } .elsewhen(destination_y < io.y) {
           io.out_U.write := 1.U
+        }.otherwise {
+          io.out_CPU.write := 1.U
         }
       }
 
@@ -113,7 +127,12 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
         io.out_L.dout := dataReg_D
       }.elsewhen(io.out_R.write) {
         io.out_R.dout := dataReg_D
+      }.elsewhen(io.out_CPU.write) {
+        io.out_CPU.dout := dataReg_CPU
       }
+
+
+
     }.elsewhen(io.in_L.read) {
       dataReg_L := io.in_L.din
       val destination_x = dataReg_L(31,30)
@@ -128,6 +147,8 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
           io.out_D.write := 1.U
         } .elsewhen(destination_y < io.y) {
           io.out_U.write := 1.U
+        }.otherwise {
+          io.out_CPU.write := 1.U
         }
       }
       when(io.out_D.write){
@@ -136,7 +157,12 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
         io.out_U.dout := dataReg_L
       }.elsewhen(io.out_R.write) {
         io.out_R.dout := dataReg_L
+      }.elsewhen(io.out_CPU.write) {
+        io.out_CPU.dout := dataReg_CPU
       }
+
+
+
     }.elsewhen(io.in_R.read) {
       dataReg_R := io.in_R.din
       val destination_x = dataReg_R(31,30)
@@ -151,6 +177,8 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
           io.out_D.write := 1.U
         } .elsewhen(destination_y < io.y) {
           io.out_U.write := 1.U
+        } .otherwise {
+          io.out_CPU.write := 1.U
         }
       }
       when(io.out_D.write){
@@ -159,6 +187,38 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
         io.out_L.dout := dataReg_R
       }.elsewhen(io.out_U.write) {
         io.out_U.dout := dataReg_R
+      }.elsewhen(io.out_CPU.write) {
+        io.out_CPU.dout := dataReg_CPU
+      }
+
+
+
+    }.elsewhen(io.in_CPU.read) {
+      dataReg_CPU := io.in_CPU.din
+      val destination_x = dataReg_CPU(31,30)
+      val destination_y = dataReg_CPU(29,28)
+
+      when(destination_x > io.x) {
+        io.out_R.write := 1.U
+      } .elsewhen(destination_x < io.x) {
+        io.out_L.write := 1.U
+      } .otherwise {
+        when (destination_y > io.y) {
+          io.out_D.write := 1.U
+        } .elsewhen(destination_y < io.y) {
+          io.out_U.write := 1.U
+        } .otherwise {
+          io.out_CPU.write := 1.U
+        }
+      }
+      when(io.out_D.write){
+        io.out_D.dout := dataReg_CPU
+      }.elsewhen(io.out_L.write){
+        io.out_L.dout := dataReg_CPU
+      }.elsewhen(io.out_U.write) {
+        io.out_U.dout := dataReg_CPU
+      }.elsewhen(io.out_CPU.write) {
+        io.out_CPU.dout := dataReg_CPU
       }
     }
 

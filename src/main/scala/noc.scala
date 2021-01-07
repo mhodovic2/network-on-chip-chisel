@@ -9,6 +9,8 @@ class noc extends MultiIOModule {
   val io = IO(new Bundle{
     val size = 32
   })
+  val size = 32
+  val som = WireInit(0.U(size.W))
 
   val router1 = Module(new Router())
   val router2 = Module(new Router())
@@ -47,8 +49,9 @@ class noc extends MultiIOModule {
   router4.io.in_L.din := router3.io.out_R.dout
   router4.io.in_R.din := router3.io.out_L.dout
 
-  //dsf
 
+
+  //dsf
 
   router1.io.in_U.read := router3.io.out_D.write
   router1.io.in_D.read := router3.io.out_U.write
@@ -70,7 +73,16 @@ class noc extends MultiIOModule {
   router4.io.in_L.read := router3.io.out_R.write
   router4.io.in_R.read := router3.io.out_L.write
 
-  println("Router data in is %x\n", router1.io.in_U)
+  //kao CPU
+  router1.io.in_CPU.din := som
+  router1.io.in_CPU.read := som
+  router2.io.in_CPU.din := som
+  router2.io.in_CPU.read := som
+  router3.io.in_CPU.din := som
+  router3.io.in_CPU.read := som
+  router4.io.in_CPU.din := som
+  router4.io.in_CPU.read := som
+
 }
 
 object noc extends App {

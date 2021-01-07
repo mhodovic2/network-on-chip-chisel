@@ -15,7 +15,7 @@ class RouterTest(dut:Router) extends PeekPokeTester(dut) {
   println("Input L is " + peek(dut.io.in_L).toString())
   println("Input R is " + peek(dut.io.in_R).toString())*/
   step(1)
-  poke(dut.io.in_U.din, value = 1L) //stavimo 3 na input
+  poke(dut.io.in_U.din, value = 0L) //stavimo 3 na input
   step(1)
   expect(dut.io.in_U.din, 4L) //prolazi
 
@@ -36,15 +36,30 @@ class RouterTest(dut:Router) extends PeekPokeTester(dut) {
   println("Output D is " + peek(dut.io.out_D).toString())
   println("Output L is " + peek(dut.io.out_L).toString())
   println("Output R is " + peek(dut.io.out_R).toString())
+  println("Output CPU is " + peek(dut.io.out_CPU).toString())
+
 
 
   /*
-    step(1)
-    poke(dut.io.dummy, value = 1L)
-    expect(dut.io.dummy, 0x1L)
-    step(1)
-    println("dummy input is " + peek(dut.io.dummy).toString)
-  */
+  step(1)
+  poke(dut.io.in_U.din, value = 1L)
+  println("Input U is " + peek(dut.io.in_U).toString())
+  println("Output U is " + peek(dut.io.out_U).toString())
+  println("Output D is " + peek(dut.io.out_D).toString())
+  println("Output L is " + peek(dut.io.out_L).toString())
+  println("Output R is " + peek(dut.io.out_R).toString())
+  poke(dut.io.in_U.read, value=0.B)
+  println("Input U is " + peek(dut.io.in_U).toString())
+
+  step(1)
+  poke(dut.io.in_U.read, value=1.B) // stavimo 1 na in_U read
+  println("Input U is " + peek(dut.io.in_U).toString())
+  println("Output U is " + peek(dut.io.out_U).toString())
+  println("Output D is " + peek(dut.io.out_D).toString())
+  println("Output L is " + peek(dut.io.out_L).toString())
+  println("Output R is " + peek(dut.io.out_R).toString())
+*/
+
 }
 
 object RouterTest extends App {
