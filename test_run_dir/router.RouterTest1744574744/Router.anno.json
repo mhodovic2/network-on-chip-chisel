@@ -1,0 +1,31 @@
+[
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_out_R_write",
+    "sources":[
+      "~Router|Router>io_in_U_read"
+    ]
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.options.TargetDirAnnotation",
+    "directory":"test_run_dir/router.RouterTest1744574744"
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.LowFirrtlEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"test_run_dir/router.RouterTest1744574744"
+  },
+  {
+    "class":"firrtl.options.OutputAnnotationFileAnnotation",
+    "file":"Router"
+  }
+]

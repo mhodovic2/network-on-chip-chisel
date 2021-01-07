@@ -4,7 +4,18 @@
     "sink":"~Router|Router>io_out_D_dout",
     "sources":[
       "~Router|Router>io_out_U_write",
-      "~Router|Router>io_out_D_write"
+      "~Router|Router>io_out_D_write",
+      "~Router|Router>io_in_U_read"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_out_L_dout",
+    "sources":[
+      "~Router|Router>io_out_U_write",
+      "~Router|Router>io_out_D_write",
+      "~Router|Router>io_out_L_write",
+      "~Router|Router>io_in_U_read"
     ]
   },
   {
@@ -16,21 +27,20 @@
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Router|Router>io_out_L_dout",
+    "sink":"~Router|Router>io_out_R_dout",
     "sources":[
       "~Router|Router>io_out_U_write",
+      "~Router|Router>io_in_U_read",
+      "~Router|Router>io_out_L_write",
       "~Router|Router>io_out_D_write",
-      "~Router|Router>io_out_L_write"
+      "~Router|Router>io_out_R_write"
     ]
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Router|Router>io_out_R_dout",
+    "sink":"~Router|Router>io_out_D_write",
     "sources":[
-      "~Router|Router>io_out_U_write",
-      "~Router|Router>io_out_D_write",
-      "~Router|Router>io_out_L_write",
-      "~Router|Router>io_out_R_write"
+      "~Router|Router>io_in_U_read"
     ]
   },
   {

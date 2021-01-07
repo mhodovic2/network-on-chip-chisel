@@ -3,7 +3,6 @@
     "class":"firrtl.transforms.CombinationalPath",
     "sink":"~Router|Router>io_out_D_dout",
     "sources":[
-      "~Router|Router>io_in_U_read",
       "~Router|Router>io_out_U_write",
       "~Router|Router>io_out_D_write"
     ]
@@ -12,7 +11,6 @@
     "class":"firrtl.transforms.CombinationalPath",
     "sink":"~Router|Router>io_out_U_dout",
     "sources":[
-      "~Router|Router>io_in_U_read",
       "~Router|Router>io_out_U_write"
     ]
   },
@@ -20,7 +18,6 @@
     "class":"firrtl.transforms.CombinationalPath",
     "sink":"~Router|Router>io_out_L_dout",
     "sources":[
-      "~Router|Router>io_in_U_read",
       "~Router|Router>io_out_U_write",
       "~Router|Router>io_out_D_write",
       "~Router|Router>io_out_L_write"
@@ -31,17 +28,9 @@
     "sink":"~Router|Router>io_out_R_dout",
     "sources":[
       "~Router|Router>io_out_U_write",
-      "~Router|Router>io_in_U_read",
-      "~Router|Router>io_out_L_write",
       "~Router|Router>io_out_D_write",
+      "~Router|Router>io_out_L_write",
       "~Router|Router>io_out_R_write"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Router|Router>io_out_D_write",
-    "sources":[
-      "~Router|Router>io_in_U_read"
     ]
   },
   {
@@ -52,7 +41,7 @@
   },
   {
     "class":"firrtl.options.TargetDirAnnotation",
-    "directory":"test_run_dir/router.RouterTest1303202597"
+    "directory":"test_run_dir/router.RouterTest1303202599"
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -60,7 +49,7 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"test_run_dir/router.RouterTest1303202597"
+    "targetDir":"test_run_dir/router.RouterTest1303202599"
   },
   {
     "class":"firrtl.options.OutputAnnotationFileAnnotation",

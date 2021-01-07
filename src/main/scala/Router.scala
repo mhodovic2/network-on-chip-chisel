@@ -67,6 +67,11 @@ class Router extends MultiIOModule{
     when (io.in_U.read) {
       stateReg === full
       dataReg_U := io.in_U.din
+      io.out_D.write := 1.U
+      io.out_D.dout := dataReg_U
+      io.out_U.dout := dataReg_U
+      io.out_L.dout := dataReg_U
+      io.out_R.dout := dataReg_U
     } .elsewhen(io.in_D.read) {
       stateReg === full
       dataReg_D := io.in_D.din
@@ -77,12 +82,12 @@ class Router extends MultiIOModule{
       stateReg === full
       dataReg_R := io.in_R.din
     }
-  } .elsewhen(stateReg === full) {
+  } .elsewhen(stateReg === full) { //ovo nista ne radi
     when(io.out_U.write) {
       out_U_dout := dataReg_U
       stateReg := empty
     } .elsewhen(io.out_D.write) {
-      out_D_dout := dataReg_D
+      io.out_D.dout := dataReg_U
       stateReg := empty
     } .elsewhen(io.out_L.write) {
       out_L_dout := dataReg_L
