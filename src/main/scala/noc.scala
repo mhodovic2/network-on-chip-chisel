@@ -15,7 +15,18 @@ class noc extends MultiIOModule {
   val router3 = Module(new Router())
   val router4 = Module(new Router())
 
- // val RX_in = WireInit(0.U(io.size.W))
+  router1.io.x := 0.U;
+  router1.io.y := 0.U;
+
+  router2.io.x := 0.U;
+  router2.io.y := 1.U;
+
+  router3.io.x := 1.U;
+  router3.io.y := 0.U;
+
+  router4.io.x := 1.U;
+  router4.io.y := 1.U;
+
   router1.io.in_U.din := router3.io.out_D.dout
   router1.io.in_D.din := router3.io.out_U.dout
   router1.io.in_L.din := router2.io.out_R.dout
