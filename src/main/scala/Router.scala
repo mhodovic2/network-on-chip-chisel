@@ -61,9 +61,6 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
   io.out_R.write := 0.U
   io.out_CPU.write := 0.U
 
- // val empty :: full :: Nil = Enum(2)
-  //val stateReg = RegInit(empty)
-
   val dataReg = WireInit(0.U(32))
   val dataReg_U = RegInit(0.U(size.W))
   val dataReg_D = RegInit(0.U(size.W))
@@ -71,7 +68,43 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
   val dataReg_R = RegInit(0.U(size.W))
   val dataReg_CPU = RegInit(0.U(size.W))
 
+  io.out_D.dout := dataReg_U
+  val stateReg = RegInit(0.B)
 
+  when(stateReg === 0.B) {
+    when (io.in_U.read) {
+      stateReg := 1.B
+      dataReg_U := io.in_U.din
+      io.out_D.write := 1.U
+      //
+    } .elsewhen(io.in_D.read) {
+      stateReg := 1.B
+      dataReg_D := io.in_D.din
+    }.elsewhen(io.in_L.read) {
+      stateReg := 1.B
+      dataReg_L := io.in_L.din
+    }.elsewhen(io.in_R.read) {
+      stateReg := 1.B
+      dataReg_R := io.in_R.din
+    }
+  } .elsewhen(stateReg === 1.B) {
+    when(io.out_U.write) {
+      out_U_dout := dataReg_U
+      stateReg := 0.B
+    } .elsewhen(io.out_D.write) {
+      io.out_D.dout := dataReg_U
+      stateReg := 0.B
+    } .elsewhen(io.out_L.write) {
+      out_L_dout := dataReg_L
+      stateReg := 0.B
+    } .elsewhen(io.out_R.write) {
+      out_R_dout := dataReg_R
+      stateReg := 0.B
+    }
+  }
+
+
+/*
     when (io.in_U.read) {
       dataReg_U := io.in_U.din
       val destination_x = dataReg_U(1,0)
@@ -221,5 +254,5 @@ class Router(/*x:Int,y:Int*/) extends MultiIOModule{
         io.out_CPU.dout := dataReg_CPU
       }
     }
-
+*/
 }
