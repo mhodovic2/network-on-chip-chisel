@@ -5,8 +5,23 @@ import chisel3.iotesters._
 
 class nocTest(dut:noc) extends PeekPokeTester(dut) {
   step(1)
-  println("Result is: " + peek(dut.router2.io.in_L).toString())
+  poke(dut.io.cpu_din, value = 5L)
+  poke(dut.io.cpu_valid_in, value = 1L)
+
   step(1)
+  //println("CPU 1 valid in is: " + peek(dut.io.cpu_valid_in))
+  //println("CPU 1 data in is: " + peek(dut.io.cpu_din))
+  //println("CPU 4 data in is: " + peek(dut.io.cpu_valid_in))
+  poke(dut.io.cpu_ready_in, value = 1L)
+
+  step(1)
+  poke(dut.io.cpu_valid_in, value = 0L)
+
+
+  step(2)
+
+
+
 }
 
 object nocTest extends App {

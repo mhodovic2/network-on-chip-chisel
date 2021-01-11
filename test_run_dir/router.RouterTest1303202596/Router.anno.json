@@ -1,46 +1,120 @@
 [
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Router|Router>io_out_D_dout",
+    "sink":"~Router|Router>io_out_N_valid_out",
     "sources":[
-      "~Router|Router>io_out_U_write",
-      "~Router|Router>io_out_D_write",
-      "~Router|Router>io_in_U_read"
+      "~Router|Router>io_x",
+      "~Router|Router>io_y"
     ]
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Router|Router>io_out_L_dout",
+    "sink":"~Router|Router>io_out_S_dout",
     "sources":[
-      "~Router|Router>io_out_U_write",
-      "~Router|Router>io_out_D_write",
-      "~Router|Router>io_out_L_write",
-      "~Router|Router>io_in_U_read"
+      "~Router|Router>io_x",
+      "~Router|Router>io_out_S_valid_out",
+      "~Router|Router>io_out_N_valid_out",
+      "~Router|Router>io_y",
+      "~Router|Router>io_out_S_ready_in"
     ]
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Router|Router>io_out_U_dout",
+    "sink":"~Router|Router>io_out_S_valid_out",
     "sources":[
-      "~Router|Router>io_out_U_write"
+      "~Router|Router>io_x",
+      "~Router|Router>io_y"
     ]
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Router|Router>io_out_R_dout",
+    "sink":"~Router|Router>io_out_E_valid_out",
     "sources":[
-      "~Router|Router>io_out_U_write",
-      "~Router|Router>io_in_U_read",
-      "~Router|Router>io_out_L_write",
-      "~Router|Router>io_out_D_write",
-      "~Router|Router>io_out_R_write"
+      "~Router|Router>io_x"
     ]
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Router|Router>io_out_D_write",
+    "sink":"~Router|Router>io_out_N_dout",
     "sources":[
-      "~Router|Router>io_in_U_read"
+      "~Router|Router>io_out_N_valid_out",
+      "~Router|Router>io_out_N_ready_in",
+      "~Router|Router>io_x",
+      "~Router|Router>io_y"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_in_E_ready_out",
+    "sources":[
+      "~Router|Router>io_in_N_valid_in",
+      "~Router|Router>io_in_S_valid_in",
+      "~Router|Router>io_in_W_valid_in",
+      "~Router|Router>io_in_E_valid_in"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_out_CPU_valid_out",
+    "sources":[
+      "~Router|Router>io_x",
+      "~Router|Router>io_y"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_out_W_dout",
+    "sources":[
+      "~Router|Router>io_x",
+      "~Router|Router>io_out_S_valid_out",
+      "~Router|Router>io_out_W_ready_in",
+      "~Router|Router>io_out_W_valid_out",
+      "~Router|Router>io_out_N_valid_out",
+      "~Router|Router>io_y"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_in_N_ready_out",
+    "sources":[
+      "~Router|Router>io_in_N_valid_in"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_in_S_ready_out",
+    "sources":[
+      "~Router|Router>io_in_N_valid_in",
+      "~Router|Router>io_in_S_valid_in"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_out_E_dout",
+    "sources":[
+      "~Router|Router>io_x",
+      "~Router|Router>io_out_S_valid_out",
+      "~Router|Router>io_out_E_valid_out",
+      "~Router|Router>io_out_E_ready_in",
+      "~Router|Router>io_out_W_valid_out",
+      "~Router|Router>io_out_N_valid_out",
+      "~Router|Router>io_y"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_out_W_valid_out",
+    "sources":[
+      "~Router|Router>io_x"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Router|Router>io_in_W_ready_out",
+    "sources":[
+      "~Router|Router>io_in_N_valid_in",
+      "~Router|Router>io_in_S_valid_in",
+      "~Router|Router>io_in_W_valid_in"
     ]
   },
   {

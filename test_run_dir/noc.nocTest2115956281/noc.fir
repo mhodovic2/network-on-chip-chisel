@@ -1,456 +1,906 @@
 ;buildInfoPackage: chisel3, version: 3.2.2, scalaVersion: 2.11.12, sbtVersion: 1.3.2
 circuit noc : 
-  module MeshRX : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_1 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_2 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_3 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshTX : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_1 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_2 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_3 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
   module Router : 
     input clock : Clock
     input reset : Reset
-    output io : {flip in_U : UInt<32>, flip in_D : UInt<32>, flip in_L : UInt<32>, flip in_R : UInt<32>, out_U : UInt<32>, out_D : UInt<32>, out_L : UInt<32>, out_R : UInt<32>}
+    output io : {in_N : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_S : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_W : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_E : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_CPU : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, out_N : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_S : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_W : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_E : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_CPU : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, flip x : UInt<2>, flip y : UInt<2>}
     
-    inst meshRX_U of MeshRX @[Router.scala 22:24]
-    meshRX_U.clock <= clock
-    meshRX_U.reset <= reset
-    inst meshRX_D of MeshRX_1 @[Router.scala 23:24]
-    meshRX_D.clock <= clock
-    meshRX_D.reset <= reset
-    inst meshRX_L of MeshRX_2 @[Router.scala 24:24]
-    meshRX_L.clock <= clock
-    meshRX_L.reset <= reset
-    inst meshRX_R of MeshRX_3 @[Router.scala 25:24]
-    meshRX_R.clock <= clock
-    meshRX_R.reset <= reset
-    wire RX_in : UInt<32>
-    RX_in <= UInt<32>("h00")
-    meshRX_U.io.din <= io.in_U @[Router.scala 30:19]
-    meshRX_D.io.din <= io.in_D @[Router.scala 31:19]
-    meshRX_L.io.din <= io.in_L @[Router.scala 32:19]
-    meshRX_R.io.din <= io.in_R @[Router.scala 33:19]
-    inst meshTX_U of MeshTX @[Router.scala 35:24]
-    meshTX_U.clock <= clock
-    meshTX_U.reset <= reset
-    inst meshTX_D of MeshTX_1 @[Router.scala 36:24]
-    meshTX_D.clock <= clock
-    meshTX_D.reset <= reset
-    inst meshTX_L of MeshTX_2 @[Router.scala 37:24]
-    meshTX_L.clock <= clock
-    meshTX_L.reset <= reset
-    inst meshTX_R of MeshTX_3 @[Router.scala 38:24]
-    meshTX_R.clock <= clock
-    meshTX_R.reset <= reset
-    io.out_U <= meshTX_U.io.dout @[Router.scala 41:12]
-    io.out_D <= meshTX_D.io.dout @[Router.scala 42:12]
-    io.out_L <= meshTX_L.io.dout @[Router.scala 43:12]
-    io.out_R <= meshTX_R.io.dout @[Router.scala 44:12]
-    node _T = asUInt(reset) @[Router.scala 46:9]
-    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 46:9]
-    when _T_1 : @[Router.scala 46:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.out_U) @[Router.scala 46:9]
-      skip @[Router.scala 46:9]
-    
-  module MeshRX_4 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_5 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_6 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_7 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshTX_4 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_5 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_6 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_7 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
+    reg som : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[Router.scala 46:20]
+    wire out_N_dout : UInt<32>
+    out_N_dout <= UInt<32>("h00")
+    wire out_S_dout : UInt<32>
+    out_S_dout <= UInt<32>("h00")
+    wire out_W_dout : UInt<32>
+    out_W_dout <= UInt<32>("h00")
+    wire out_E_dout : UInt<32>
+    out_E_dout <= UInt<32>("h00")
+    wire out_CPU_dout : UInt<32>
+    out_CPU_dout <= UInt<32>("h00")
+    io.out_N.dout <= out_N_dout @[Router.scala 54:17]
+    io.out_S.dout <= out_S_dout @[Router.scala 55:17]
+    io.out_W.dout <= out_W_dout @[Router.scala 56:17]
+    io.out_E.dout <= out_E_dout @[Router.scala 57:17]
+    io.out_CPU.dout <= out_CPU_dout @[Router.scala 58:19]
+    io.out_N.valid_out <= UInt<1>("h00") @[Router.scala 60:22]
+    io.out_S.valid_out <= UInt<1>("h00") @[Router.scala 61:22]
+    io.out_W.valid_out <= UInt<1>("h00") @[Router.scala 62:22]
+    io.out_E.valid_out <= UInt<1>("h00") @[Router.scala 63:22]
+    io.out_CPU.valid_out <= UInt<1>("h00") @[Router.scala 64:24]
+    io.in_N.ready_out <= UInt<1>("h00") @[Router.scala 66:21]
+    io.in_S.ready_out <= UInt<1>("h00") @[Router.scala 67:21]
+    io.in_W.ready_out <= UInt<1>("h00") @[Router.scala 68:21]
+    io.in_E.ready_out <= UInt<1>("h00") @[Router.scala 69:21]
+    io.in_CPU.ready_out <= UInt<1>("h00") @[Router.scala 70:23]
+    reg dataReg : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 72:24]
+    reg dataReg_N : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 73:26]
+    reg dataReg_S : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 74:26]
+    reg dataReg_W : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 75:26]
+    reg dataReg_E : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 76:26]
+    reg dataReg_CPU : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 77:28]
+    reg stateReg : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[Router.scala 80:25]
+    node destination_y = bits(dataReg, 1, 0) @[Router.scala 82:30]
+    node destination_x = bits(dataReg, 3, 2) @[Router.scala 83:30]
+    node _T = asUInt(reset) @[Router.scala 85:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 85:9]
+    when _T_1 : @[Router.scala 85:9]
+      printf(clock, UInt<1>(1), "Dest_x je %d, a dest_y je %d\n", destination_x, destination_y) @[Router.scala 85:9]
+      skip @[Router.scala 85:9]
+    node _T_2 = asUInt(reset) @[Router.scala 86:9]
+    node _T_3 = eq(_T_2, UInt<1>("h00")) @[Router.scala 86:9]
+    when _T_3 : @[Router.scala 86:9]
+      printf(clock, UInt<1>(1), "Registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, dataReg) @[Router.scala 86:9]
+      skip @[Router.scala 86:9]
+    node _T_4 = asUInt(reset) @[Router.scala 87:9]
+    node _T_5 = eq(_T_4, UInt<1>("h00")) @[Router.scala 87:9]
+    when _T_5 : @[Router.scala 87:9]
+      printf(clock, UInt<1>(1), "State registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, stateReg) @[Router.scala 87:9]
+      skip @[Router.scala 87:9]
+    node _T_6 = asUInt(reset) @[Router.scala 88:9]
+    node _T_7 = eq(_T_6, UInt<1>("h00")) @[Router.scala 88:9]
+    when _T_7 : @[Router.scala 88:9]
+      printf(clock, UInt<1>(1), "Valid out South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.valid_out) @[Router.scala 88:9]
+      skip @[Router.scala 88:9]
+    node _T_8 = asUInt(reset) @[Router.scala 89:9]
+    node _T_9 = eq(_T_8, UInt<1>("h00")) @[Router.scala 89:9]
+    when _T_9 : @[Router.scala 89:9]
+      printf(clock, UInt<1>(1), "Ready in South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.ready_in) @[Router.scala 89:9]
+      skip @[Router.scala 89:9]
+    node _T_10 = eq(stateReg, UInt<1>("h00")) @[Router.scala 92:17]
+    when _T_10 : @[Router.scala 92:26]
+      io.out_N.valid_out <= UInt<1>("h00") @[Router.scala 93:24]
+      io.out_N.dout <= UInt<1>("h00") @[Router.scala 94:19]
+      io.out_S.valid_out <= UInt<1>("h00") @[Router.scala 95:24]
+      io.out_S.dout <= UInt<1>("h00") @[Router.scala 96:19]
+      io.out_W.valid_out <= UInt<1>("h00") @[Router.scala 97:24]
+      io.out_W.dout <= UInt<1>("h00") @[Router.scala 98:19]
+      io.out_E.valid_out <= UInt<1>("h00") @[Router.scala 99:24]
+      io.out_E.dout <= UInt<1>("h00") @[Router.scala 100:19]
+      io.out_CPU.valid_out <= UInt<1>("h00") @[Router.scala 101:26]
+      io.out_CPU.dout <= UInt<1>("h00") @[Router.scala 102:21]
+      when io.in_N.valid_in : @[Router.scala 104:29]
+        io.in_N.ready_out <= UInt<1>("h01") @[Router.scala 105:25]
+        stateReg <= UInt<1>("h01") @[Router.scala 106:16]
+        dataReg_N <= io.in_N.din @[Router.scala 107:17]
+        dataReg <= io.in_N.din @[Router.scala 108:15]
+        skip @[Router.scala 104:29]
+      else : @[Router.scala 109:35]
+        when io.in_S.valid_in : @[Router.scala 109:35]
+          io.in_S.ready_out <= UInt<1>("h01") @[Router.scala 110:25]
+          stateReg <= UInt<1>("h01") @[Router.scala 111:16]
+          dataReg_S <= io.in_S.din @[Router.scala 112:17]
+          dataReg <= io.in_S.din @[Router.scala 113:15]
+          skip @[Router.scala 109:35]
+        else : @[Router.scala 114:34]
+          when io.in_W.valid_in : @[Router.scala 114:34]
+            io.in_W.ready_out <= UInt<1>("h01") @[Router.scala 115:25]
+            stateReg <= UInt<1>("h01") @[Router.scala 116:16]
+            dataReg_W <= io.in_W.din @[Router.scala 117:17]
+            dataReg <= io.in_W.din @[Router.scala 118:15]
+            skip @[Router.scala 114:34]
+          else : @[Router.scala 119:34]
+            when io.in_E.valid_in : @[Router.scala 119:34]
+              io.in_E.ready_out <= UInt<1>("h01") @[Router.scala 120:25]
+              stateReg <= UInt<1>("h01") @[Router.scala 121:16]
+              dataReg_E <= io.in_E.din @[Router.scala 122:17]
+              dataReg <= io.in_E.din @[Router.scala 123:15]
+              skip @[Router.scala 119:34]
+            else : @[Router.scala 124:36]
+              when io.in_CPU.valid_in : @[Router.scala 124:36]
+                io.in_CPU.ready_out <= UInt<1>("h01") @[Router.scala 125:27]
+                stateReg <= UInt<1>("h01") @[Router.scala 126:16]
+                dataReg_CPU <= io.in_CPU.din @[Router.scala 127:19]
+                dataReg <= io.in_CPU.din @[Router.scala 128:15]
+                skip @[Router.scala 124:36]
+      skip @[Router.scala 92:26]
+    else : @[Router.scala 131:33]
+      node _T_11 = eq(stateReg, UInt<1>("h01")) @[Router.scala 131:24]
+      when _T_11 : @[Router.scala 131:33]
+        node _T_12 = gt(destination_y, io.y) @[Router.scala 133:25]
+        when _T_12 : @[Router.scala 133:33]
+          node _T_13 = asUInt(reset) @[Router.scala 134:13]
+          node _T_14 = eq(_T_13, UInt<1>("h00")) @[Router.scala 134:13]
+          when _T_14 : @[Router.scala 134:13]
+            printf(clock, UInt<1>(1), "uso x\n") @[Router.scala 134:13]
+            skip @[Router.scala 134:13]
+          io.out_E.valid_out <= UInt<1>("h01") @[Router.scala 135:26]
+          skip @[Router.scala 133:33]
+        else : @[Router.scala 136:39]
+          node _T_15 = lt(destination_y, io.y) @[Router.scala 136:31]
+          when _T_15 : @[Router.scala 136:39]
+            io.out_W.valid_out <= UInt<1>("h01") @[Router.scala 137:26]
+            skip @[Router.scala 136:39]
+          else : @[Router.scala 138:18]
+            node _T_16 = asUInt(reset) @[Router.scala 139:13]
+            node _T_17 = eq(_T_16, UInt<1>("h00")) @[Router.scala 139:13]
+            when _T_17 : @[Router.scala 139:13]
+              printf(clock, UInt<1>(1), "uso y\n") @[Router.scala 139:13]
+              skip @[Router.scala 139:13]
+            node _T_18 = gt(destination_x, io.x) @[Router.scala 140:27]
+            when _T_18 : @[Router.scala 140:35]
+              io.out_S.valid_out <= UInt<1>("h01") @[Router.scala 141:28]
+              skip @[Router.scala 140:35]
+            else : @[Router.scala 142:41]
+              node _T_19 = lt(destination_x, io.x) @[Router.scala 142:33]
+              when _T_19 : @[Router.scala 142:41]
+                io.out_N.valid_out <= UInt<1>("h01") @[Router.scala 143:28]
+                skip @[Router.scala 142:41]
+              else : @[Router.scala 144:20]
+                io.out_CPU.valid_out <= UInt<1>("h01") @[Router.scala 145:30]
+                skip @[Router.scala 144:20]
+            skip @[Router.scala 138:18]
+        when io.out_N.valid_out : @[Router.scala 149:30]
+          when io.out_N.ready_in : @[Router.scala 150:31]
+            out_N_dout <= dataReg @[Router.scala 151:20]
+            stateReg <= UInt<1>("h00") @[Router.scala 152:18]
+            dataReg <= UInt<1>("h00") @[Router.scala 153:17]
+            skip @[Router.scala 150:31]
+          skip @[Router.scala 149:30]
+        else : @[Router.scala 155:37]
+          when io.out_S.valid_out : @[Router.scala 155:37]
+            when io.out_S.ready_in : @[Router.scala 156:31]
+              io.out_S.dout <= dataReg @[Router.scala 157:23]
+              stateReg <= UInt<1>("h00") @[Router.scala 158:18]
+              dataReg <= UInt<1>("h00") @[Router.scala 159:17]
+              skip @[Router.scala 156:31]
+            skip @[Router.scala 155:37]
+          else : @[Router.scala 161:37]
+            when io.out_W.valid_out : @[Router.scala 161:37]
+              when io.out_W.ready_in : @[Router.scala 162:31]
+                io.out_W.dout <= dataReg @[Router.scala 163:23]
+                stateReg <= UInt<1>("h00") @[Router.scala 164:18]
+                dataReg <= UInt<1>("h00") @[Router.scala 165:17]
+                skip @[Router.scala 162:31]
+              skip @[Router.scala 161:37]
+            else : @[Router.scala 167:37]
+              when io.out_E.valid_out : @[Router.scala 167:37]
+                when io.out_E.ready_in : @[Router.scala 168:31]
+                  out_E_dout <= dataReg @[Router.scala 169:20]
+                  stateReg <= UInt<1>("h00") @[Router.scala 170:18]
+                  dataReg <= UInt<1>("h00") @[Router.scala 171:17]
+                  skip @[Router.scala 168:31]
+                skip @[Router.scala 167:37]
+              else : @[Router.scala 173:39]
+                when io.out_CPU.valid_out : @[Router.scala 173:39]
+                  when io.out_CPU.ready_in : @[Router.scala 174:33]
+                    out_CPU_dout <= dataReg @[Router.scala 175:22]
+                    stateReg <= UInt<1>("h00") @[Router.scala 176:18]
+                    dataReg <= UInt<1>("h00") @[Router.scala 177:17]
+                    skip @[Router.scala 174:33]
+                  skip @[Router.scala 173:39]
+        skip @[Router.scala 131:33]
+    node _T_20 = asUInt(reset) @[Router.scala 182:9]
+    node _T_21 = eq(_T_20, UInt<1>("h00")) @[Router.scala 182:9]
+    when _T_21 : @[Router.scala 182:9]
+      printf(clock, UInt<1>(1), "!!!!!!!!\n") @[Router.scala 182:9]
+      skip @[Router.scala 182:9]
     
   module Router_1 : 
     input clock : Clock
     input reset : Reset
-    output io : {flip in_U : UInt<32>, flip in_D : UInt<32>, flip in_L : UInt<32>, flip in_R : UInt<32>, out_U : UInt<32>, out_D : UInt<32>, out_L : UInt<32>, out_R : UInt<32>}
+    output io : {in_N : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_S : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_W : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_E : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_CPU : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, out_N : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_S : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_W : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_E : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_CPU : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, flip x : UInt<2>, flip y : UInt<2>}
     
-    inst meshRX_U of MeshRX_4 @[Router.scala 22:24]
-    meshRX_U.clock <= clock
-    meshRX_U.reset <= reset
-    inst meshRX_D of MeshRX_5 @[Router.scala 23:24]
-    meshRX_D.clock <= clock
-    meshRX_D.reset <= reset
-    inst meshRX_L of MeshRX_6 @[Router.scala 24:24]
-    meshRX_L.clock <= clock
-    meshRX_L.reset <= reset
-    inst meshRX_R of MeshRX_7 @[Router.scala 25:24]
-    meshRX_R.clock <= clock
-    meshRX_R.reset <= reset
-    wire RX_in : UInt<32>
-    RX_in <= UInt<32>("h00")
-    meshRX_U.io.din <= io.in_U @[Router.scala 30:19]
-    meshRX_D.io.din <= io.in_D @[Router.scala 31:19]
-    meshRX_L.io.din <= io.in_L @[Router.scala 32:19]
-    meshRX_R.io.din <= io.in_R @[Router.scala 33:19]
-    inst meshTX_U of MeshTX_4 @[Router.scala 35:24]
-    meshTX_U.clock <= clock
-    meshTX_U.reset <= reset
-    inst meshTX_D of MeshTX_5 @[Router.scala 36:24]
-    meshTX_D.clock <= clock
-    meshTX_D.reset <= reset
-    inst meshTX_L of MeshTX_6 @[Router.scala 37:24]
-    meshTX_L.clock <= clock
-    meshTX_L.reset <= reset
-    inst meshTX_R of MeshTX_7 @[Router.scala 38:24]
-    meshTX_R.clock <= clock
-    meshTX_R.reset <= reset
-    io.out_U <= meshTX_U.io.dout @[Router.scala 41:12]
-    io.out_D <= meshTX_D.io.dout @[Router.scala 42:12]
-    io.out_L <= meshTX_L.io.dout @[Router.scala 43:12]
-    io.out_R <= meshTX_R.io.dout @[Router.scala 44:12]
-    node _T = asUInt(reset) @[Router.scala 46:9]
-    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 46:9]
-    when _T_1 : @[Router.scala 46:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.out_U) @[Router.scala 46:9]
-      skip @[Router.scala 46:9]
-    
-  module MeshRX_8 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_9 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_10 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_11 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshTX_8 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_9 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_10 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_11 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
+    reg som : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[Router.scala 46:20]
+    wire out_N_dout : UInt<32>
+    out_N_dout <= UInt<32>("h00")
+    wire out_S_dout : UInt<32>
+    out_S_dout <= UInt<32>("h00")
+    wire out_W_dout : UInt<32>
+    out_W_dout <= UInt<32>("h00")
+    wire out_E_dout : UInt<32>
+    out_E_dout <= UInt<32>("h00")
+    wire out_CPU_dout : UInt<32>
+    out_CPU_dout <= UInt<32>("h00")
+    io.out_N.dout <= out_N_dout @[Router.scala 54:17]
+    io.out_S.dout <= out_S_dout @[Router.scala 55:17]
+    io.out_W.dout <= out_W_dout @[Router.scala 56:17]
+    io.out_E.dout <= out_E_dout @[Router.scala 57:17]
+    io.out_CPU.dout <= out_CPU_dout @[Router.scala 58:19]
+    io.out_N.valid_out <= UInt<1>("h00") @[Router.scala 60:22]
+    io.out_S.valid_out <= UInt<1>("h00") @[Router.scala 61:22]
+    io.out_W.valid_out <= UInt<1>("h00") @[Router.scala 62:22]
+    io.out_E.valid_out <= UInt<1>("h00") @[Router.scala 63:22]
+    io.out_CPU.valid_out <= UInt<1>("h00") @[Router.scala 64:24]
+    io.in_N.ready_out <= UInt<1>("h00") @[Router.scala 66:21]
+    io.in_S.ready_out <= UInt<1>("h00") @[Router.scala 67:21]
+    io.in_W.ready_out <= UInt<1>("h00") @[Router.scala 68:21]
+    io.in_E.ready_out <= UInt<1>("h00") @[Router.scala 69:21]
+    io.in_CPU.ready_out <= UInt<1>("h00") @[Router.scala 70:23]
+    reg dataReg : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 72:24]
+    reg dataReg_N : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 73:26]
+    reg dataReg_S : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 74:26]
+    reg dataReg_W : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 75:26]
+    reg dataReg_E : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 76:26]
+    reg dataReg_CPU : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 77:28]
+    reg stateReg : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[Router.scala 80:25]
+    node destination_y = bits(dataReg, 1, 0) @[Router.scala 82:30]
+    node destination_x = bits(dataReg, 3, 2) @[Router.scala 83:30]
+    node _T = asUInt(reset) @[Router.scala 85:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 85:9]
+    when _T_1 : @[Router.scala 85:9]
+      printf(clock, UInt<1>(1), "Dest_x je %d, a dest_y je %d\n", destination_x, destination_y) @[Router.scala 85:9]
+      skip @[Router.scala 85:9]
+    node _T_2 = asUInt(reset) @[Router.scala 86:9]
+    node _T_3 = eq(_T_2, UInt<1>("h00")) @[Router.scala 86:9]
+    when _T_3 : @[Router.scala 86:9]
+      printf(clock, UInt<1>(1), "Registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, dataReg) @[Router.scala 86:9]
+      skip @[Router.scala 86:9]
+    node _T_4 = asUInt(reset) @[Router.scala 87:9]
+    node _T_5 = eq(_T_4, UInt<1>("h00")) @[Router.scala 87:9]
+    when _T_5 : @[Router.scala 87:9]
+      printf(clock, UInt<1>(1), "State registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, stateReg) @[Router.scala 87:9]
+      skip @[Router.scala 87:9]
+    node _T_6 = asUInt(reset) @[Router.scala 88:9]
+    node _T_7 = eq(_T_6, UInt<1>("h00")) @[Router.scala 88:9]
+    when _T_7 : @[Router.scala 88:9]
+      printf(clock, UInt<1>(1), "Valid out South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.valid_out) @[Router.scala 88:9]
+      skip @[Router.scala 88:9]
+    node _T_8 = asUInt(reset) @[Router.scala 89:9]
+    node _T_9 = eq(_T_8, UInt<1>("h00")) @[Router.scala 89:9]
+    when _T_9 : @[Router.scala 89:9]
+      printf(clock, UInt<1>(1), "Ready in South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.ready_in) @[Router.scala 89:9]
+      skip @[Router.scala 89:9]
+    node _T_10 = eq(stateReg, UInt<1>("h00")) @[Router.scala 92:17]
+    when _T_10 : @[Router.scala 92:26]
+      io.out_N.valid_out <= UInt<1>("h00") @[Router.scala 93:24]
+      io.out_N.dout <= UInt<1>("h00") @[Router.scala 94:19]
+      io.out_S.valid_out <= UInt<1>("h00") @[Router.scala 95:24]
+      io.out_S.dout <= UInt<1>("h00") @[Router.scala 96:19]
+      io.out_W.valid_out <= UInt<1>("h00") @[Router.scala 97:24]
+      io.out_W.dout <= UInt<1>("h00") @[Router.scala 98:19]
+      io.out_E.valid_out <= UInt<1>("h00") @[Router.scala 99:24]
+      io.out_E.dout <= UInt<1>("h00") @[Router.scala 100:19]
+      io.out_CPU.valid_out <= UInt<1>("h00") @[Router.scala 101:26]
+      io.out_CPU.dout <= UInt<1>("h00") @[Router.scala 102:21]
+      when io.in_N.valid_in : @[Router.scala 104:29]
+        io.in_N.ready_out <= UInt<1>("h01") @[Router.scala 105:25]
+        stateReg <= UInt<1>("h01") @[Router.scala 106:16]
+        dataReg_N <= io.in_N.din @[Router.scala 107:17]
+        dataReg <= io.in_N.din @[Router.scala 108:15]
+        skip @[Router.scala 104:29]
+      else : @[Router.scala 109:35]
+        when io.in_S.valid_in : @[Router.scala 109:35]
+          io.in_S.ready_out <= UInt<1>("h01") @[Router.scala 110:25]
+          stateReg <= UInt<1>("h01") @[Router.scala 111:16]
+          dataReg_S <= io.in_S.din @[Router.scala 112:17]
+          dataReg <= io.in_S.din @[Router.scala 113:15]
+          skip @[Router.scala 109:35]
+        else : @[Router.scala 114:34]
+          when io.in_W.valid_in : @[Router.scala 114:34]
+            io.in_W.ready_out <= UInt<1>("h01") @[Router.scala 115:25]
+            stateReg <= UInt<1>("h01") @[Router.scala 116:16]
+            dataReg_W <= io.in_W.din @[Router.scala 117:17]
+            dataReg <= io.in_W.din @[Router.scala 118:15]
+            skip @[Router.scala 114:34]
+          else : @[Router.scala 119:34]
+            when io.in_E.valid_in : @[Router.scala 119:34]
+              io.in_E.ready_out <= UInt<1>("h01") @[Router.scala 120:25]
+              stateReg <= UInt<1>("h01") @[Router.scala 121:16]
+              dataReg_E <= io.in_E.din @[Router.scala 122:17]
+              dataReg <= io.in_E.din @[Router.scala 123:15]
+              skip @[Router.scala 119:34]
+            else : @[Router.scala 124:36]
+              when io.in_CPU.valid_in : @[Router.scala 124:36]
+                io.in_CPU.ready_out <= UInt<1>("h01") @[Router.scala 125:27]
+                stateReg <= UInt<1>("h01") @[Router.scala 126:16]
+                dataReg_CPU <= io.in_CPU.din @[Router.scala 127:19]
+                dataReg <= io.in_CPU.din @[Router.scala 128:15]
+                skip @[Router.scala 124:36]
+      skip @[Router.scala 92:26]
+    else : @[Router.scala 131:33]
+      node _T_11 = eq(stateReg, UInt<1>("h01")) @[Router.scala 131:24]
+      when _T_11 : @[Router.scala 131:33]
+        node _T_12 = gt(destination_y, io.y) @[Router.scala 133:25]
+        when _T_12 : @[Router.scala 133:33]
+          node _T_13 = asUInt(reset) @[Router.scala 134:13]
+          node _T_14 = eq(_T_13, UInt<1>("h00")) @[Router.scala 134:13]
+          when _T_14 : @[Router.scala 134:13]
+            printf(clock, UInt<1>(1), "uso x\n") @[Router.scala 134:13]
+            skip @[Router.scala 134:13]
+          io.out_E.valid_out <= UInt<1>("h01") @[Router.scala 135:26]
+          skip @[Router.scala 133:33]
+        else : @[Router.scala 136:39]
+          node _T_15 = lt(destination_y, io.y) @[Router.scala 136:31]
+          when _T_15 : @[Router.scala 136:39]
+            io.out_W.valid_out <= UInt<1>("h01") @[Router.scala 137:26]
+            skip @[Router.scala 136:39]
+          else : @[Router.scala 138:18]
+            node _T_16 = asUInt(reset) @[Router.scala 139:13]
+            node _T_17 = eq(_T_16, UInt<1>("h00")) @[Router.scala 139:13]
+            when _T_17 : @[Router.scala 139:13]
+              printf(clock, UInt<1>(1), "uso y\n") @[Router.scala 139:13]
+              skip @[Router.scala 139:13]
+            node _T_18 = gt(destination_x, io.x) @[Router.scala 140:27]
+            when _T_18 : @[Router.scala 140:35]
+              io.out_S.valid_out <= UInt<1>("h01") @[Router.scala 141:28]
+              skip @[Router.scala 140:35]
+            else : @[Router.scala 142:41]
+              node _T_19 = lt(destination_x, io.x) @[Router.scala 142:33]
+              when _T_19 : @[Router.scala 142:41]
+                io.out_N.valid_out <= UInt<1>("h01") @[Router.scala 143:28]
+                skip @[Router.scala 142:41]
+              else : @[Router.scala 144:20]
+                io.out_CPU.valid_out <= UInt<1>("h01") @[Router.scala 145:30]
+                skip @[Router.scala 144:20]
+            skip @[Router.scala 138:18]
+        when io.out_N.valid_out : @[Router.scala 149:30]
+          when io.out_N.ready_in : @[Router.scala 150:31]
+            out_N_dout <= dataReg @[Router.scala 151:20]
+            stateReg <= UInt<1>("h00") @[Router.scala 152:18]
+            dataReg <= UInt<1>("h00") @[Router.scala 153:17]
+            skip @[Router.scala 150:31]
+          skip @[Router.scala 149:30]
+        else : @[Router.scala 155:37]
+          when io.out_S.valid_out : @[Router.scala 155:37]
+            when io.out_S.ready_in : @[Router.scala 156:31]
+              io.out_S.dout <= dataReg @[Router.scala 157:23]
+              stateReg <= UInt<1>("h00") @[Router.scala 158:18]
+              dataReg <= UInt<1>("h00") @[Router.scala 159:17]
+              skip @[Router.scala 156:31]
+            skip @[Router.scala 155:37]
+          else : @[Router.scala 161:37]
+            when io.out_W.valid_out : @[Router.scala 161:37]
+              when io.out_W.ready_in : @[Router.scala 162:31]
+                io.out_W.dout <= dataReg @[Router.scala 163:23]
+                stateReg <= UInt<1>("h00") @[Router.scala 164:18]
+                dataReg <= UInt<1>("h00") @[Router.scala 165:17]
+                skip @[Router.scala 162:31]
+              skip @[Router.scala 161:37]
+            else : @[Router.scala 167:37]
+              when io.out_E.valid_out : @[Router.scala 167:37]
+                when io.out_E.ready_in : @[Router.scala 168:31]
+                  out_E_dout <= dataReg @[Router.scala 169:20]
+                  stateReg <= UInt<1>("h00") @[Router.scala 170:18]
+                  dataReg <= UInt<1>("h00") @[Router.scala 171:17]
+                  skip @[Router.scala 168:31]
+                skip @[Router.scala 167:37]
+              else : @[Router.scala 173:39]
+                when io.out_CPU.valid_out : @[Router.scala 173:39]
+                  when io.out_CPU.ready_in : @[Router.scala 174:33]
+                    out_CPU_dout <= dataReg @[Router.scala 175:22]
+                    stateReg <= UInt<1>("h00") @[Router.scala 176:18]
+                    dataReg <= UInt<1>("h00") @[Router.scala 177:17]
+                    skip @[Router.scala 174:33]
+                  skip @[Router.scala 173:39]
+        skip @[Router.scala 131:33]
+    node _T_20 = asUInt(reset) @[Router.scala 182:9]
+    node _T_21 = eq(_T_20, UInt<1>("h00")) @[Router.scala 182:9]
+    when _T_21 : @[Router.scala 182:9]
+      printf(clock, UInt<1>(1), "!!!!!!!!\n") @[Router.scala 182:9]
+      skip @[Router.scala 182:9]
     
   module Router_2 : 
     input clock : Clock
     input reset : Reset
-    output io : {flip in_U : UInt<32>, flip in_D : UInt<32>, flip in_L : UInt<32>, flip in_R : UInt<32>, out_U : UInt<32>, out_D : UInt<32>, out_L : UInt<32>, out_R : UInt<32>}
+    output io : {in_N : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_S : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_W : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_E : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_CPU : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, out_N : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_S : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_W : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_E : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_CPU : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, flip x : UInt<2>, flip y : UInt<2>}
     
-    inst meshRX_U of MeshRX_8 @[Router.scala 22:24]
-    meshRX_U.clock <= clock
-    meshRX_U.reset <= reset
-    inst meshRX_D of MeshRX_9 @[Router.scala 23:24]
-    meshRX_D.clock <= clock
-    meshRX_D.reset <= reset
-    inst meshRX_L of MeshRX_10 @[Router.scala 24:24]
-    meshRX_L.clock <= clock
-    meshRX_L.reset <= reset
-    inst meshRX_R of MeshRX_11 @[Router.scala 25:24]
-    meshRX_R.clock <= clock
-    meshRX_R.reset <= reset
-    wire RX_in : UInt<32>
-    RX_in <= UInt<32>("h00")
-    meshRX_U.io.din <= io.in_U @[Router.scala 30:19]
-    meshRX_D.io.din <= io.in_D @[Router.scala 31:19]
-    meshRX_L.io.din <= io.in_L @[Router.scala 32:19]
-    meshRX_R.io.din <= io.in_R @[Router.scala 33:19]
-    inst meshTX_U of MeshTX_8 @[Router.scala 35:24]
-    meshTX_U.clock <= clock
-    meshTX_U.reset <= reset
-    inst meshTX_D of MeshTX_9 @[Router.scala 36:24]
-    meshTX_D.clock <= clock
-    meshTX_D.reset <= reset
-    inst meshTX_L of MeshTX_10 @[Router.scala 37:24]
-    meshTX_L.clock <= clock
-    meshTX_L.reset <= reset
-    inst meshTX_R of MeshTX_11 @[Router.scala 38:24]
-    meshTX_R.clock <= clock
-    meshTX_R.reset <= reset
-    io.out_U <= meshTX_U.io.dout @[Router.scala 41:12]
-    io.out_D <= meshTX_D.io.dout @[Router.scala 42:12]
-    io.out_L <= meshTX_L.io.dout @[Router.scala 43:12]
-    io.out_R <= meshTX_R.io.dout @[Router.scala 44:12]
-    node _T = asUInt(reset) @[Router.scala 46:9]
-    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 46:9]
-    when _T_1 : @[Router.scala 46:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.out_U) @[Router.scala 46:9]
-      skip @[Router.scala 46:9]
-    
-  module MeshRX_12 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_13 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_14 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshRX_15 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {flip din : UInt<32>}
-    
-    
-  module MeshTX_12 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_13 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_14 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
-    
-  module MeshTX_15 : 
-    input clock : Clock
-    input reset : Reset
-    output io : {dout : UInt<32>}
-    
-    wire registar : UInt<32>
-    registar <= UInt<32>("h00")
-    io.dout <= registar @[MeshTX.scala 14:11]
+    reg som : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[Router.scala 46:20]
+    wire out_N_dout : UInt<32>
+    out_N_dout <= UInt<32>("h00")
+    wire out_S_dout : UInt<32>
+    out_S_dout <= UInt<32>("h00")
+    wire out_W_dout : UInt<32>
+    out_W_dout <= UInt<32>("h00")
+    wire out_E_dout : UInt<32>
+    out_E_dout <= UInt<32>("h00")
+    wire out_CPU_dout : UInt<32>
+    out_CPU_dout <= UInt<32>("h00")
+    io.out_N.dout <= out_N_dout @[Router.scala 54:17]
+    io.out_S.dout <= out_S_dout @[Router.scala 55:17]
+    io.out_W.dout <= out_W_dout @[Router.scala 56:17]
+    io.out_E.dout <= out_E_dout @[Router.scala 57:17]
+    io.out_CPU.dout <= out_CPU_dout @[Router.scala 58:19]
+    io.out_N.valid_out <= UInt<1>("h00") @[Router.scala 60:22]
+    io.out_S.valid_out <= UInt<1>("h00") @[Router.scala 61:22]
+    io.out_W.valid_out <= UInt<1>("h00") @[Router.scala 62:22]
+    io.out_E.valid_out <= UInt<1>("h00") @[Router.scala 63:22]
+    io.out_CPU.valid_out <= UInt<1>("h00") @[Router.scala 64:24]
+    io.in_N.ready_out <= UInt<1>("h00") @[Router.scala 66:21]
+    io.in_S.ready_out <= UInt<1>("h00") @[Router.scala 67:21]
+    io.in_W.ready_out <= UInt<1>("h00") @[Router.scala 68:21]
+    io.in_E.ready_out <= UInt<1>("h00") @[Router.scala 69:21]
+    io.in_CPU.ready_out <= UInt<1>("h00") @[Router.scala 70:23]
+    reg dataReg : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 72:24]
+    reg dataReg_N : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 73:26]
+    reg dataReg_S : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 74:26]
+    reg dataReg_W : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 75:26]
+    reg dataReg_E : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 76:26]
+    reg dataReg_CPU : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 77:28]
+    reg stateReg : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[Router.scala 80:25]
+    node destination_y = bits(dataReg, 1, 0) @[Router.scala 82:30]
+    node destination_x = bits(dataReg, 3, 2) @[Router.scala 83:30]
+    node _T = asUInt(reset) @[Router.scala 85:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 85:9]
+    when _T_1 : @[Router.scala 85:9]
+      printf(clock, UInt<1>(1), "Dest_x je %d, a dest_y je %d\n", destination_x, destination_y) @[Router.scala 85:9]
+      skip @[Router.scala 85:9]
+    node _T_2 = asUInt(reset) @[Router.scala 86:9]
+    node _T_3 = eq(_T_2, UInt<1>("h00")) @[Router.scala 86:9]
+    when _T_3 : @[Router.scala 86:9]
+      printf(clock, UInt<1>(1), "Registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, dataReg) @[Router.scala 86:9]
+      skip @[Router.scala 86:9]
+    node _T_4 = asUInt(reset) @[Router.scala 87:9]
+    node _T_5 = eq(_T_4, UInt<1>("h00")) @[Router.scala 87:9]
+    when _T_5 : @[Router.scala 87:9]
+      printf(clock, UInt<1>(1), "State registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, stateReg) @[Router.scala 87:9]
+      skip @[Router.scala 87:9]
+    node _T_6 = asUInt(reset) @[Router.scala 88:9]
+    node _T_7 = eq(_T_6, UInt<1>("h00")) @[Router.scala 88:9]
+    when _T_7 : @[Router.scala 88:9]
+      printf(clock, UInt<1>(1), "Valid out South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.valid_out) @[Router.scala 88:9]
+      skip @[Router.scala 88:9]
+    node _T_8 = asUInt(reset) @[Router.scala 89:9]
+    node _T_9 = eq(_T_8, UInt<1>("h00")) @[Router.scala 89:9]
+    when _T_9 : @[Router.scala 89:9]
+      printf(clock, UInt<1>(1), "Ready in South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.ready_in) @[Router.scala 89:9]
+      skip @[Router.scala 89:9]
+    node _T_10 = eq(stateReg, UInt<1>("h00")) @[Router.scala 92:17]
+    when _T_10 : @[Router.scala 92:26]
+      io.out_N.valid_out <= UInt<1>("h00") @[Router.scala 93:24]
+      io.out_N.dout <= UInt<1>("h00") @[Router.scala 94:19]
+      io.out_S.valid_out <= UInt<1>("h00") @[Router.scala 95:24]
+      io.out_S.dout <= UInt<1>("h00") @[Router.scala 96:19]
+      io.out_W.valid_out <= UInt<1>("h00") @[Router.scala 97:24]
+      io.out_W.dout <= UInt<1>("h00") @[Router.scala 98:19]
+      io.out_E.valid_out <= UInt<1>("h00") @[Router.scala 99:24]
+      io.out_E.dout <= UInt<1>("h00") @[Router.scala 100:19]
+      io.out_CPU.valid_out <= UInt<1>("h00") @[Router.scala 101:26]
+      io.out_CPU.dout <= UInt<1>("h00") @[Router.scala 102:21]
+      when io.in_N.valid_in : @[Router.scala 104:29]
+        io.in_N.ready_out <= UInt<1>("h01") @[Router.scala 105:25]
+        stateReg <= UInt<1>("h01") @[Router.scala 106:16]
+        dataReg_N <= io.in_N.din @[Router.scala 107:17]
+        dataReg <= io.in_N.din @[Router.scala 108:15]
+        skip @[Router.scala 104:29]
+      else : @[Router.scala 109:35]
+        when io.in_S.valid_in : @[Router.scala 109:35]
+          io.in_S.ready_out <= UInt<1>("h01") @[Router.scala 110:25]
+          stateReg <= UInt<1>("h01") @[Router.scala 111:16]
+          dataReg_S <= io.in_S.din @[Router.scala 112:17]
+          dataReg <= io.in_S.din @[Router.scala 113:15]
+          skip @[Router.scala 109:35]
+        else : @[Router.scala 114:34]
+          when io.in_W.valid_in : @[Router.scala 114:34]
+            io.in_W.ready_out <= UInt<1>("h01") @[Router.scala 115:25]
+            stateReg <= UInt<1>("h01") @[Router.scala 116:16]
+            dataReg_W <= io.in_W.din @[Router.scala 117:17]
+            dataReg <= io.in_W.din @[Router.scala 118:15]
+            skip @[Router.scala 114:34]
+          else : @[Router.scala 119:34]
+            when io.in_E.valid_in : @[Router.scala 119:34]
+              io.in_E.ready_out <= UInt<1>("h01") @[Router.scala 120:25]
+              stateReg <= UInt<1>("h01") @[Router.scala 121:16]
+              dataReg_E <= io.in_E.din @[Router.scala 122:17]
+              dataReg <= io.in_E.din @[Router.scala 123:15]
+              skip @[Router.scala 119:34]
+            else : @[Router.scala 124:36]
+              when io.in_CPU.valid_in : @[Router.scala 124:36]
+                io.in_CPU.ready_out <= UInt<1>("h01") @[Router.scala 125:27]
+                stateReg <= UInt<1>("h01") @[Router.scala 126:16]
+                dataReg_CPU <= io.in_CPU.din @[Router.scala 127:19]
+                dataReg <= io.in_CPU.din @[Router.scala 128:15]
+                skip @[Router.scala 124:36]
+      skip @[Router.scala 92:26]
+    else : @[Router.scala 131:33]
+      node _T_11 = eq(stateReg, UInt<1>("h01")) @[Router.scala 131:24]
+      when _T_11 : @[Router.scala 131:33]
+        node _T_12 = gt(destination_y, io.y) @[Router.scala 133:25]
+        when _T_12 : @[Router.scala 133:33]
+          node _T_13 = asUInt(reset) @[Router.scala 134:13]
+          node _T_14 = eq(_T_13, UInt<1>("h00")) @[Router.scala 134:13]
+          when _T_14 : @[Router.scala 134:13]
+            printf(clock, UInt<1>(1), "uso x\n") @[Router.scala 134:13]
+            skip @[Router.scala 134:13]
+          io.out_E.valid_out <= UInt<1>("h01") @[Router.scala 135:26]
+          skip @[Router.scala 133:33]
+        else : @[Router.scala 136:39]
+          node _T_15 = lt(destination_y, io.y) @[Router.scala 136:31]
+          when _T_15 : @[Router.scala 136:39]
+            io.out_W.valid_out <= UInt<1>("h01") @[Router.scala 137:26]
+            skip @[Router.scala 136:39]
+          else : @[Router.scala 138:18]
+            node _T_16 = asUInt(reset) @[Router.scala 139:13]
+            node _T_17 = eq(_T_16, UInt<1>("h00")) @[Router.scala 139:13]
+            when _T_17 : @[Router.scala 139:13]
+              printf(clock, UInt<1>(1), "uso y\n") @[Router.scala 139:13]
+              skip @[Router.scala 139:13]
+            node _T_18 = gt(destination_x, io.x) @[Router.scala 140:27]
+            when _T_18 : @[Router.scala 140:35]
+              io.out_S.valid_out <= UInt<1>("h01") @[Router.scala 141:28]
+              skip @[Router.scala 140:35]
+            else : @[Router.scala 142:41]
+              node _T_19 = lt(destination_x, io.x) @[Router.scala 142:33]
+              when _T_19 : @[Router.scala 142:41]
+                io.out_N.valid_out <= UInt<1>("h01") @[Router.scala 143:28]
+                skip @[Router.scala 142:41]
+              else : @[Router.scala 144:20]
+                io.out_CPU.valid_out <= UInt<1>("h01") @[Router.scala 145:30]
+                skip @[Router.scala 144:20]
+            skip @[Router.scala 138:18]
+        when io.out_N.valid_out : @[Router.scala 149:30]
+          when io.out_N.ready_in : @[Router.scala 150:31]
+            out_N_dout <= dataReg @[Router.scala 151:20]
+            stateReg <= UInt<1>("h00") @[Router.scala 152:18]
+            dataReg <= UInt<1>("h00") @[Router.scala 153:17]
+            skip @[Router.scala 150:31]
+          skip @[Router.scala 149:30]
+        else : @[Router.scala 155:37]
+          when io.out_S.valid_out : @[Router.scala 155:37]
+            when io.out_S.ready_in : @[Router.scala 156:31]
+              io.out_S.dout <= dataReg @[Router.scala 157:23]
+              stateReg <= UInt<1>("h00") @[Router.scala 158:18]
+              dataReg <= UInt<1>("h00") @[Router.scala 159:17]
+              skip @[Router.scala 156:31]
+            skip @[Router.scala 155:37]
+          else : @[Router.scala 161:37]
+            when io.out_W.valid_out : @[Router.scala 161:37]
+              when io.out_W.ready_in : @[Router.scala 162:31]
+                io.out_W.dout <= dataReg @[Router.scala 163:23]
+                stateReg <= UInt<1>("h00") @[Router.scala 164:18]
+                dataReg <= UInt<1>("h00") @[Router.scala 165:17]
+                skip @[Router.scala 162:31]
+              skip @[Router.scala 161:37]
+            else : @[Router.scala 167:37]
+              when io.out_E.valid_out : @[Router.scala 167:37]
+                when io.out_E.ready_in : @[Router.scala 168:31]
+                  out_E_dout <= dataReg @[Router.scala 169:20]
+                  stateReg <= UInt<1>("h00") @[Router.scala 170:18]
+                  dataReg <= UInt<1>("h00") @[Router.scala 171:17]
+                  skip @[Router.scala 168:31]
+                skip @[Router.scala 167:37]
+              else : @[Router.scala 173:39]
+                when io.out_CPU.valid_out : @[Router.scala 173:39]
+                  when io.out_CPU.ready_in : @[Router.scala 174:33]
+                    out_CPU_dout <= dataReg @[Router.scala 175:22]
+                    stateReg <= UInt<1>("h00") @[Router.scala 176:18]
+                    dataReg <= UInt<1>("h00") @[Router.scala 177:17]
+                    skip @[Router.scala 174:33]
+                  skip @[Router.scala 173:39]
+        skip @[Router.scala 131:33]
+    node _T_20 = asUInt(reset) @[Router.scala 182:9]
+    node _T_21 = eq(_T_20, UInt<1>("h00")) @[Router.scala 182:9]
+    when _T_21 : @[Router.scala 182:9]
+      printf(clock, UInt<1>(1), "!!!!!!!!\n") @[Router.scala 182:9]
+      skip @[Router.scala 182:9]
     
   module Router_3 : 
     input clock : Clock
     input reset : Reset
-    output io : {flip in_U : UInt<32>, flip in_D : UInt<32>, flip in_L : UInt<32>, flip in_R : UInt<32>, out_U : UInt<32>, out_D : UInt<32>, out_L : UInt<32>, out_R : UInt<32>}
+    output io : {in_N : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_S : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_W : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_E : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, in_CPU : {flip valid_in : UInt<1>, ready_out : UInt<1>, flip din : UInt<32>}, out_N : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_S : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_W : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_E : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, out_CPU : {valid_out : UInt<1>, flip ready_in : UInt<1>, dout : UInt<32>}, flip x : UInt<2>, flip y : UInt<2>}
     
-    inst meshRX_U of MeshRX_12 @[Router.scala 22:24]
-    meshRX_U.clock <= clock
-    meshRX_U.reset <= reset
-    inst meshRX_D of MeshRX_13 @[Router.scala 23:24]
-    meshRX_D.clock <= clock
-    meshRX_D.reset <= reset
-    inst meshRX_L of MeshRX_14 @[Router.scala 24:24]
-    meshRX_L.clock <= clock
-    meshRX_L.reset <= reset
-    inst meshRX_R of MeshRX_15 @[Router.scala 25:24]
-    meshRX_R.clock <= clock
-    meshRX_R.reset <= reset
-    wire RX_in : UInt<32>
-    RX_in <= UInt<32>("h00")
-    meshRX_U.io.din <= io.in_U @[Router.scala 30:19]
-    meshRX_D.io.din <= io.in_D @[Router.scala 31:19]
-    meshRX_L.io.din <= io.in_L @[Router.scala 32:19]
-    meshRX_R.io.din <= io.in_R @[Router.scala 33:19]
-    inst meshTX_U of MeshTX_12 @[Router.scala 35:24]
-    meshTX_U.clock <= clock
-    meshTX_U.reset <= reset
-    inst meshTX_D of MeshTX_13 @[Router.scala 36:24]
-    meshTX_D.clock <= clock
-    meshTX_D.reset <= reset
-    inst meshTX_L of MeshTX_14 @[Router.scala 37:24]
-    meshTX_L.clock <= clock
-    meshTX_L.reset <= reset
-    inst meshTX_R of MeshTX_15 @[Router.scala 38:24]
-    meshTX_R.clock <= clock
-    meshTX_R.reset <= reset
-    io.out_U <= meshTX_U.io.dout @[Router.scala 41:12]
-    io.out_D <= meshTX_D.io.dout @[Router.scala 42:12]
-    io.out_L <= meshTX_L.io.dout @[Router.scala 43:12]
-    io.out_R <= meshTX_R.io.dout @[Router.scala 44:12]
-    node _T = asUInt(reset) @[Router.scala 46:9]
-    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 46:9]
-    when _T_1 : @[Router.scala 46:9]
-      printf(clock, UInt<1>(1), "data into router N port is %x\n", io.out_U) @[Router.scala 46:9]
-      skip @[Router.scala 46:9]
+    reg som : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[Router.scala 46:20]
+    wire out_N_dout : UInt<32>
+    out_N_dout <= UInt<32>("h00")
+    wire out_S_dout : UInt<32>
+    out_S_dout <= UInt<32>("h00")
+    wire out_W_dout : UInt<32>
+    out_W_dout <= UInt<32>("h00")
+    wire out_E_dout : UInt<32>
+    out_E_dout <= UInt<32>("h00")
+    wire out_CPU_dout : UInt<32>
+    out_CPU_dout <= UInt<32>("h00")
+    io.out_N.dout <= out_N_dout @[Router.scala 54:17]
+    io.out_S.dout <= out_S_dout @[Router.scala 55:17]
+    io.out_W.dout <= out_W_dout @[Router.scala 56:17]
+    io.out_E.dout <= out_E_dout @[Router.scala 57:17]
+    io.out_CPU.dout <= out_CPU_dout @[Router.scala 58:19]
+    io.out_N.valid_out <= UInt<1>("h00") @[Router.scala 60:22]
+    io.out_S.valid_out <= UInt<1>("h00") @[Router.scala 61:22]
+    io.out_W.valid_out <= UInt<1>("h00") @[Router.scala 62:22]
+    io.out_E.valid_out <= UInt<1>("h00") @[Router.scala 63:22]
+    io.out_CPU.valid_out <= UInt<1>("h00") @[Router.scala 64:24]
+    io.in_N.ready_out <= UInt<1>("h00") @[Router.scala 66:21]
+    io.in_S.ready_out <= UInt<1>("h00") @[Router.scala 67:21]
+    io.in_W.ready_out <= UInt<1>("h00") @[Router.scala 68:21]
+    io.in_E.ready_out <= UInt<1>("h00") @[Router.scala 69:21]
+    io.in_CPU.ready_out <= UInt<1>("h00") @[Router.scala 70:23]
+    reg dataReg : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 72:24]
+    reg dataReg_N : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 73:26]
+    reg dataReg_S : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 74:26]
+    reg dataReg_W : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 75:26]
+    reg dataReg_E : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 76:26]
+    reg dataReg_CPU : UInt<32>, clock with : (reset => (reset, UInt<32>("h00"))) @[Router.scala 77:28]
+    reg stateReg : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[Router.scala 80:25]
+    node destination_y = bits(dataReg, 1, 0) @[Router.scala 82:30]
+    node destination_x = bits(dataReg, 3, 2) @[Router.scala 83:30]
+    node _T = asUInt(reset) @[Router.scala 85:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[Router.scala 85:9]
+    when _T_1 : @[Router.scala 85:9]
+      printf(clock, UInt<1>(1), "Dest_x je %d, a dest_y je %d\n", destination_x, destination_y) @[Router.scala 85:9]
+      skip @[Router.scala 85:9]
+    node _T_2 = asUInt(reset) @[Router.scala 86:9]
+    node _T_3 = eq(_T_2, UInt<1>("h00")) @[Router.scala 86:9]
+    when _T_3 : @[Router.scala 86:9]
+      printf(clock, UInt<1>(1), "Registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, dataReg) @[Router.scala 86:9]
+      skip @[Router.scala 86:9]
+    node _T_4 = asUInt(reset) @[Router.scala 87:9]
+    node _T_5 = eq(_T_4, UInt<1>("h00")) @[Router.scala 87:9]
+    when _T_5 : @[Router.scala 87:9]
+      printf(clock, UInt<1>(1), "State registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, stateReg) @[Router.scala 87:9]
+      skip @[Router.scala 87:9]
+    node _T_6 = asUInt(reset) @[Router.scala 88:9]
+    node _T_7 = eq(_T_6, UInt<1>("h00")) @[Router.scala 88:9]
+    when _T_7 : @[Router.scala 88:9]
+      printf(clock, UInt<1>(1), "Valid out South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.valid_out) @[Router.scala 88:9]
+      skip @[Router.scala 88:9]
+    node _T_8 = asUInt(reset) @[Router.scala 89:9]
+    node _T_9 = eq(_T_8, UInt<1>("h00")) @[Router.scala 89:9]
+    when _T_9 : @[Router.scala 89:9]
+      printf(clock, UInt<1>(1), "Ready in South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.ready_in) @[Router.scala 89:9]
+      skip @[Router.scala 89:9]
+    node _T_10 = eq(stateReg, UInt<1>("h00")) @[Router.scala 92:17]
+    when _T_10 : @[Router.scala 92:26]
+      io.out_N.valid_out <= UInt<1>("h00") @[Router.scala 93:24]
+      io.out_N.dout <= UInt<1>("h00") @[Router.scala 94:19]
+      io.out_S.valid_out <= UInt<1>("h00") @[Router.scala 95:24]
+      io.out_S.dout <= UInt<1>("h00") @[Router.scala 96:19]
+      io.out_W.valid_out <= UInt<1>("h00") @[Router.scala 97:24]
+      io.out_W.dout <= UInt<1>("h00") @[Router.scala 98:19]
+      io.out_E.valid_out <= UInt<1>("h00") @[Router.scala 99:24]
+      io.out_E.dout <= UInt<1>("h00") @[Router.scala 100:19]
+      io.out_CPU.valid_out <= UInt<1>("h00") @[Router.scala 101:26]
+      io.out_CPU.dout <= UInt<1>("h00") @[Router.scala 102:21]
+      when io.in_N.valid_in : @[Router.scala 104:29]
+        io.in_N.ready_out <= UInt<1>("h01") @[Router.scala 105:25]
+        stateReg <= UInt<1>("h01") @[Router.scala 106:16]
+        dataReg_N <= io.in_N.din @[Router.scala 107:17]
+        dataReg <= io.in_N.din @[Router.scala 108:15]
+        skip @[Router.scala 104:29]
+      else : @[Router.scala 109:35]
+        when io.in_S.valid_in : @[Router.scala 109:35]
+          io.in_S.ready_out <= UInt<1>("h01") @[Router.scala 110:25]
+          stateReg <= UInt<1>("h01") @[Router.scala 111:16]
+          dataReg_S <= io.in_S.din @[Router.scala 112:17]
+          dataReg <= io.in_S.din @[Router.scala 113:15]
+          skip @[Router.scala 109:35]
+        else : @[Router.scala 114:34]
+          when io.in_W.valid_in : @[Router.scala 114:34]
+            io.in_W.ready_out <= UInt<1>("h01") @[Router.scala 115:25]
+            stateReg <= UInt<1>("h01") @[Router.scala 116:16]
+            dataReg_W <= io.in_W.din @[Router.scala 117:17]
+            dataReg <= io.in_W.din @[Router.scala 118:15]
+            skip @[Router.scala 114:34]
+          else : @[Router.scala 119:34]
+            when io.in_E.valid_in : @[Router.scala 119:34]
+              io.in_E.ready_out <= UInt<1>("h01") @[Router.scala 120:25]
+              stateReg <= UInt<1>("h01") @[Router.scala 121:16]
+              dataReg_E <= io.in_E.din @[Router.scala 122:17]
+              dataReg <= io.in_E.din @[Router.scala 123:15]
+              skip @[Router.scala 119:34]
+            else : @[Router.scala 124:36]
+              when io.in_CPU.valid_in : @[Router.scala 124:36]
+                io.in_CPU.ready_out <= UInt<1>("h01") @[Router.scala 125:27]
+                stateReg <= UInt<1>("h01") @[Router.scala 126:16]
+                dataReg_CPU <= io.in_CPU.din @[Router.scala 127:19]
+                dataReg <= io.in_CPU.din @[Router.scala 128:15]
+                skip @[Router.scala 124:36]
+      skip @[Router.scala 92:26]
+    else : @[Router.scala 131:33]
+      node _T_11 = eq(stateReg, UInt<1>("h01")) @[Router.scala 131:24]
+      when _T_11 : @[Router.scala 131:33]
+        node _T_12 = gt(destination_y, io.y) @[Router.scala 133:25]
+        when _T_12 : @[Router.scala 133:33]
+          node _T_13 = asUInt(reset) @[Router.scala 134:13]
+          node _T_14 = eq(_T_13, UInt<1>("h00")) @[Router.scala 134:13]
+          when _T_14 : @[Router.scala 134:13]
+            printf(clock, UInt<1>(1), "uso x\n") @[Router.scala 134:13]
+            skip @[Router.scala 134:13]
+          io.out_E.valid_out <= UInt<1>("h01") @[Router.scala 135:26]
+          skip @[Router.scala 133:33]
+        else : @[Router.scala 136:39]
+          node _T_15 = lt(destination_y, io.y) @[Router.scala 136:31]
+          when _T_15 : @[Router.scala 136:39]
+            io.out_W.valid_out <= UInt<1>("h01") @[Router.scala 137:26]
+            skip @[Router.scala 136:39]
+          else : @[Router.scala 138:18]
+            node _T_16 = asUInt(reset) @[Router.scala 139:13]
+            node _T_17 = eq(_T_16, UInt<1>("h00")) @[Router.scala 139:13]
+            when _T_17 : @[Router.scala 139:13]
+              printf(clock, UInt<1>(1), "uso y\n") @[Router.scala 139:13]
+              skip @[Router.scala 139:13]
+            node _T_18 = gt(destination_x, io.x) @[Router.scala 140:27]
+            when _T_18 : @[Router.scala 140:35]
+              io.out_S.valid_out <= UInt<1>("h01") @[Router.scala 141:28]
+              skip @[Router.scala 140:35]
+            else : @[Router.scala 142:41]
+              node _T_19 = lt(destination_x, io.x) @[Router.scala 142:33]
+              when _T_19 : @[Router.scala 142:41]
+                io.out_N.valid_out <= UInt<1>("h01") @[Router.scala 143:28]
+                skip @[Router.scala 142:41]
+              else : @[Router.scala 144:20]
+                io.out_CPU.valid_out <= UInt<1>("h01") @[Router.scala 145:30]
+                skip @[Router.scala 144:20]
+            skip @[Router.scala 138:18]
+        when io.out_N.valid_out : @[Router.scala 149:30]
+          when io.out_N.ready_in : @[Router.scala 150:31]
+            out_N_dout <= dataReg @[Router.scala 151:20]
+            stateReg <= UInt<1>("h00") @[Router.scala 152:18]
+            dataReg <= UInt<1>("h00") @[Router.scala 153:17]
+            skip @[Router.scala 150:31]
+          skip @[Router.scala 149:30]
+        else : @[Router.scala 155:37]
+          when io.out_S.valid_out : @[Router.scala 155:37]
+            when io.out_S.ready_in : @[Router.scala 156:31]
+              io.out_S.dout <= dataReg @[Router.scala 157:23]
+              stateReg <= UInt<1>("h00") @[Router.scala 158:18]
+              dataReg <= UInt<1>("h00") @[Router.scala 159:17]
+              skip @[Router.scala 156:31]
+            skip @[Router.scala 155:37]
+          else : @[Router.scala 161:37]
+            when io.out_W.valid_out : @[Router.scala 161:37]
+              when io.out_W.ready_in : @[Router.scala 162:31]
+                io.out_W.dout <= dataReg @[Router.scala 163:23]
+                stateReg <= UInt<1>("h00") @[Router.scala 164:18]
+                dataReg <= UInt<1>("h00") @[Router.scala 165:17]
+                skip @[Router.scala 162:31]
+              skip @[Router.scala 161:37]
+            else : @[Router.scala 167:37]
+              when io.out_E.valid_out : @[Router.scala 167:37]
+                when io.out_E.ready_in : @[Router.scala 168:31]
+                  out_E_dout <= dataReg @[Router.scala 169:20]
+                  stateReg <= UInt<1>("h00") @[Router.scala 170:18]
+                  dataReg <= UInt<1>("h00") @[Router.scala 171:17]
+                  skip @[Router.scala 168:31]
+                skip @[Router.scala 167:37]
+              else : @[Router.scala 173:39]
+                when io.out_CPU.valid_out : @[Router.scala 173:39]
+                  when io.out_CPU.ready_in : @[Router.scala 174:33]
+                    out_CPU_dout <= dataReg @[Router.scala 175:22]
+                    stateReg <= UInt<1>("h00") @[Router.scala 176:18]
+                    dataReg <= UInt<1>("h00") @[Router.scala 177:17]
+                    skip @[Router.scala 174:33]
+                  skip @[Router.scala 173:39]
+        skip @[Router.scala 131:33]
+    node _T_20 = asUInt(reset) @[Router.scala 182:9]
+    node _T_21 = eq(_T_20, UInt<1>("h00")) @[Router.scala 182:9]
+    when _T_21 : @[Router.scala 182:9]
+      printf(clock, UInt<1>(1), "!!!!!!!!\n") @[Router.scala 182:9]
+      skip @[Router.scala 182:9]
     
   module noc : 
     input clock : Clock
     input reset : UInt<1>
-    output io : {}
+    output io : {flip cpu_din : UInt<32>, flip cpu_valid_in : UInt<1>, flip cpu_ready_in : UInt<1>}
     
-    inst router1 of Router @[noc.scala 13:23]
+    wire som : UInt<32>
+    som <= UInt<32>("h00")
+    inst router1 of Router @[noc.scala 19:23]
     router1.clock <= clock
     router1.reset <= reset
-    inst router2 of Router_1 @[noc.scala 14:23]
+    inst router2 of Router_1 @[noc.scala 20:23]
     router2.clock <= clock
     router2.reset <= reset
-    inst router3 of Router_2 @[noc.scala 15:23]
+    inst router3 of Router_2 @[noc.scala 21:23]
     router3.clock <= clock
     router3.reset <= reset
-    inst router4 of Router_3 @[noc.scala 16:23]
+    inst router4 of Router_3 @[noc.scala 22:23]
     router4.clock <= clock
     router4.reset <= reset
-    router1.io.in_U <= router3.io.out_D @[noc.scala 19:19]
-    router1.io.in_D <= router3.io.out_U @[noc.scala 20:19]
-    router1.io.in_L <= router2.io.out_R @[noc.scala 21:19]
-    router1.io.in_R <= router2.io.out_L @[noc.scala 22:19]
-    router2.io.in_U <= router4.io.out_D @[noc.scala 24:19]
-    router2.io.in_D <= router4.io.out_U @[noc.scala 25:19]
-    router2.io.in_L <= router1.io.out_R @[noc.scala 26:19]
-    router2.io.in_R <= router1.io.out_L @[noc.scala 27:19]
-    router3.io.in_U <= router1.io.out_D @[noc.scala 29:19]
-    router3.io.in_D <= router1.io.out_U @[noc.scala 30:19]
-    router3.io.in_L <= router4.io.out_R @[noc.scala 31:19]
-    router3.io.in_R <= router4.io.out_L @[noc.scala 32:19]
-    router4.io.in_U <= router2.io.out_D @[noc.scala 34:19]
-    router4.io.in_D <= router2.io.out_U @[noc.scala 35:19]
-    router4.io.in_L <= router3.io.out_R @[noc.scala 36:19]
-    router4.io.in_R <= router3.io.out_L @[noc.scala 37:19]
+    router1.io.x <= UInt<1>("h00") @[noc.scala 24:16]
+    router1.io.y <= UInt<1>("h00") @[noc.scala 25:16]
+    router2.io.x <= UInt<1>("h00") @[noc.scala 27:16]
+    router2.io.y <= UInt<1>("h01") @[noc.scala 28:16]
+    router3.io.x <= UInt<1>("h01") @[noc.scala 30:16]
+    router3.io.y <= UInt<1>("h00") @[noc.scala 31:16]
+    router4.io.x <= UInt<1>("h01") @[noc.scala 33:16]
+    router4.io.y <= UInt<1>("h01") @[noc.scala 34:16]
+    router1.io.in_N.din <= router3.io.out_S.dout @[noc.scala 36:23]
+    router1.io.in_S.din <= router3.io.out_N.dout @[noc.scala 37:23]
+    router1.io.in_W.din <= router2.io.out_E.dout @[noc.scala 38:23]
+    router1.io.in_E.din <= router2.io.out_W.dout @[noc.scala 39:23]
+    router2.io.in_N.din <= router4.io.out_S.dout @[noc.scala 41:23]
+    router2.io.in_S.din <= router4.io.out_N.dout @[noc.scala 42:23]
+    router2.io.in_W.din <= router1.io.out_E.dout @[noc.scala 43:23]
+    router2.io.in_E.din <= router1.io.out_W.dout @[noc.scala 44:23]
+    router3.io.in_N.din <= router1.io.out_S.dout @[noc.scala 46:23]
+    router3.io.in_S.din <= router1.io.out_N.dout @[noc.scala 47:23]
+    router3.io.in_W.din <= router4.io.out_E.dout @[noc.scala 48:23]
+    router3.io.in_E.din <= router4.io.out_W.dout @[noc.scala 49:23]
+    router4.io.in_N.din <= router2.io.out_S.dout @[noc.scala 51:23]
+    router4.io.in_S.din <= router2.io.out_N.dout @[noc.scala 52:23]
+    router4.io.in_W.din <= router3.io.out_E.dout @[noc.scala 53:23]
+    router4.io.in_E.din <= router3.io.out_W.dout @[noc.scala 54:23]
+    router1.io.in_N.valid_in <= router3.io.out_S.valid_out @[noc.scala 60:28]
+    router1.io.in_S.valid_in <= router3.io.out_N.valid_out @[noc.scala 61:28]
+    router1.io.in_W.valid_in <= router2.io.out_E.valid_out @[noc.scala 62:28]
+    router1.io.in_E.valid_in <= router2.io.out_W.valid_out @[noc.scala 63:28]
+    router2.io.in_N.valid_in <= router4.io.out_S.valid_out @[noc.scala 65:28]
+    router2.io.in_S.valid_in <= router4.io.out_N.valid_out @[noc.scala 66:28]
+    router2.io.in_W.valid_in <= router1.io.out_E.valid_out @[noc.scala 67:28]
+    router2.io.in_E.valid_in <= router1.io.out_W.valid_out @[noc.scala 68:28]
+    router3.io.in_N.valid_in <= router1.io.out_S.valid_out @[noc.scala 70:28]
+    router3.io.in_S.valid_in <= router1.io.out_N.valid_out @[noc.scala 71:28]
+    router3.io.in_W.valid_in <= router4.io.out_E.valid_out @[noc.scala 72:28]
+    router3.io.in_E.valid_in <= router4.io.out_W.valid_out @[noc.scala 73:28]
+    router4.io.in_N.valid_in <= router2.io.out_S.valid_out @[noc.scala 75:28]
+    router4.io.in_S.valid_in <= router2.io.out_N.valid_out @[noc.scala 76:28]
+    router4.io.in_W.valid_in <= router3.io.out_E.valid_out @[noc.scala 77:28]
+    router4.io.in_E.valid_in <= router3.io.out_W.valid_out @[noc.scala 78:28]
+    router1.io.out_N.ready_in <= router3.io.in_S.ready_out @[noc.scala 81:29]
+    router1.io.out_S.ready_in <= router3.io.in_N.ready_out @[noc.scala 82:29]
+    router1.io.out_W.ready_in <= router2.io.in_E.ready_out @[noc.scala 83:29]
+    router1.io.out_E.ready_in <= router2.io.in_W.ready_out @[noc.scala 84:29]
+    router2.io.out_N.ready_in <= router4.io.in_S.ready_out @[noc.scala 86:29]
+    router2.io.out_S.ready_in <= router4.io.in_N.ready_out @[noc.scala 87:29]
+    router2.io.out_W.ready_in <= router1.io.in_E.ready_out @[noc.scala 88:29]
+    router2.io.out_E.ready_in <= router1.io.in_W.ready_out @[noc.scala 89:29]
+    router3.io.out_N.ready_in <= router1.io.in_S.ready_out @[noc.scala 91:29]
+    router3.io.out_S.ready_in <= router1.io.in_N.ready_out @[noc.scala 92:29]
+    router3.io.out_W.ready_in <= router4.io.in_E.ready_out @[noc.scala 93:29]
+    router3.io.out_E.ready_in <= router4.io.in_W.ready_out @[noc.scala 94:29]
+    router4.io.out_N.ready_in <= router2.io.in_S.ready_out @[noc.scala 96:29]
+    router4.io.out_S.ready_in <= router2.io.in_N.ready_out @[noc.scala 97:29]
+    router4.io.out_W.ready_in <= router3.io.in_E.ready_out @[noc.scala 98:29]
+    router4.io.out_E.ready_in <= router3.io.in_W.ready_out @[noc.scala 99:29]
+    node _T = bits(reset, 0, 0) @[noc.scala 101:9]
+    node _T_1 = eq(_T, UInt<1>("h00")) @[noc.scala 101:9]
+    when _T_1 : @[noc.scala 101:9]
+      printf(clock, UInt<1>(1), "Router 1 CPU data ulaz je %d\n", router1.io.in_CPU.din) @[noc.scala 101:9]
+      skip @[noc.scala 101:9]
+    node _T_2 = bits(reset, 0, 0) @[noc.scala 102:9]
+    node _T_3 = eq(_T_2, UInt<1>("h00")) @[noc.scala 102:9]
+    when _T_3 : @[noc.scala 102:9]
+      printf(clock, UInt<1>(1), "Router 1 East data izlaz je %d\n", router1.io.out_E.dout) @[noc.scala 102:9]
+      skip @[noc.scala 102:9]
+    node _T_4 = bits(reset, 0, 0) @[noc.scala 103:9]
+    node _T_5 = eq(_T_4, UInt<1>("h00")) @[noc.scala 103:9]
+    when _T_5 : @[noc.scala 103:9]
+      printf(clock, UInt<1>(1), "Router 2 West data ulaz je %d\n", router2.io.in_W.din) @[noc.scala 103:9]
+      skip @[noc.scala 103:9]
+    node _T_6 = bits(reset, 0, 0) @[noc.scala 104:9]
+    node _T_7 = eq(_T_6, UInt<1>("h00")) @[noc.scala 104:9]
+    when _T_7 : @[noc.scala 104:9]
+      printf(clock, UInt<1>(1), "Router 2 South data izlaz je %d\n", router2.io.out_S.dout) @[noc.scala 104:9]
+      skip @[noc.scala 104:9]
+    node _T_8 = bits(reset, 0, 0) @[noc.scala 105:9]
+    node _T_9 = eq(_T_8, UInt<1>("h00")) @[noc.scala 105:9]
+    when _T_9 : @[noc.scala 105:9]
+      printf(clock, UInt<1>(1), "Router 2 South valid_out izlaz je %d\n", router2.io.out_S.valid_out) @[noc.scala 105:9]
+      skip @[noc.scala 105:9]
+    node _T_10 = bits(reset, 0, 0) @[noc.scala 106:9]
+    node _T_11 = eq(_T_10, UInt<1>("h00")) @[noc.scala 106:9]
+    when _T_11 : @[noc.scala 106:9]
+      printf(clock, UInt<1>(1), "Router 2 South ready_in ulaz je %d\n", router2.io.out_S.ready_in) @[noc.scala 106:9]
+      skip @[noc.scala 106:9]
+    node _T_12 = bits(reset, 0, 0) @[noc.scala 114:9]
+    node _T_13 = eq(_T_12, UInt<1>("h00")) @[noc.scala 114:9]
+    when _T_13 : @[noc.scala 114:9]
+      printf(clock, UInt<1>(1), "---------------------------------------------------\n") @[noc.scala 114:9]
+      skip @[noc.scala 114:9]
+    node _T_14 = bits(reset, 0, 0) @[noc.scala 116:9]
+    node _T_15 = eq(_T_14, UInt<1>("h00")) @[noc.scala 116:9]
+    when _T_15 : @[noc.scala 116:9]
+      printf(clock, UInt<1>(1), "Router 4 CPU dout ready_in je %d\n", router4.io.out_CPU.dout) @[noc.scala 116:9]
+      skip @[noc.scala 116:9]
+    router1.io.in_CPU.din <= io.cpu_din @[noc.scala 121:25]
+    router1.io.in_CPU.valid_in <= io.cpu_valid_in @[noc.scala 122:30]
+    router1.io.out_CPU.ready_in <= som @[noc.scala 123:31]
+    router2.io.in_CPU.din <= som @[noc.scala 125:25]
+    router2.io.in_CPU.valid_in <= som @[noc.scala 126:30]
+    router2.io.out_CPU.ready_in <= som @[noc.scala 127:31]
+    router3.io.in_CPU.din <= som @[noc.scala 129:25]
+    router3.io.in_CPU.valid_in <= som @[noc.scala 130:30]
+    router3.io.out_CPU.ready_in <= som @[noc.scala 131:31]
+    router4.io.in_CPU.din <= som @[noc.scala 133:25]
+    router4.io.in_CPU.valid_in <= som @[noc.scala 134:30]
+    router4.io.out_CPU.ready_in <= io.cpu_ready_in @[noc.scala 135:31]
     

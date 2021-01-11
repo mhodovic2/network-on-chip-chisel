@@ -2,91 +2,177 @@ circuit Router :
   module Router :
     input clock : Clock
     input reset : UInt<1>
-    input io_in_U_read : UInt<1>
-    input io_in_U_din : UInt<32>
-    input io_in_D_read : UInt<1>
-    input io_in_D_din : UInt<32>
-    input io_in_L_read : UInt<1>
-    input io_in_L_din : UInt<32>
-    input io_in_R_read : UInt<1>
-    input io_in_R_din : UInt<32>
-    output io_out_U_write : UInt<1>
-    output io_out_U_dout : UInt<32>
-    output io_out_D_write : UInt<1>
-    output io_out_D_dout : UInt<32>
-    output io_out_L_write : UInt<1>
-    output io_out_L_dout : UInt<32>
-    output io_out_R_write : UInt<1>
-    output io_out_R_dout : UInt<32>
+    input io_in_N_valid_in : UInt<1>
+    output io_in_N_ready_out : UInt<1>
+    input io_in_N_din : UInt<32>
+    input io_in_S_valid_in : UInt<1>
+    output io_in_S_ready_out : UInt<1>
+    input io_in_S_din : UInt<32>
+    input io_in_W_valid_in : UInt<1>
+    output io_in_W_ready_out : UInt<1>
+    input io_in_W_din : UInt<32>
+    input io_in_E_valid_in : UInt<1>
+    output io_in_E_ready_out : UInt<1>
+    input io_in_E_din : UInt<32>
+    input io_in_CPU_valid_in : UInt<1>
+    output io_in_CPU_ready_out : UInt<1>
+    input io_in_CPU_din : UInt<32>
+    output io_out_N_valid_out : UInt<1>
+    input io_out_N_ready_in : UInt<1>
+    output io_out_N_dout : UInt<32>
+    output io_out_S_valid_out : UInt<1>
+    input io_out_S_ready_in : UInt<1>
+    output io_out_S_dout : UInt<32>
+    output io_out_W_valid_out : UInt<1>
+    input io_out_W_ready_in : UInt<1>
+    output io_out_W_dout : UInt<32>
+    output io_out_E_valid_out : UInt<1>
+    input io_out_E_ready_in : UInt<1>
+    output io_out_E_dout : UInt<32>
+    output io_out_CPU_valid_out : UInt<1>
+    input io_out_CPU_ready_in : UInt<1>
+    output io_out_CPU_dout : UInt<32>
+    input io_x : UInt<2>
+    input io_y : UInt<2>
   
     reg som : UInt<1>, clock with :
-      reset => (UInt<1>("h0"), som) @[Router.scala 39:20]
+      reset => (UInt<1>("h0"), som) @[Router.scala 46:20]
+    reg dataReg : UInt<32>, clock with :
+      reset => (UInt<1>("h0"), dataReg) @[Router.scala 72:24]
+    reg dataReg_N : UInt<32>, clock with :
+      reset => (UInt<1>("h0"), dataReg_N) @[Router.scala 73:26]
+    reg dataReg_S : UInt<32>, clock with :
+      reset => (UInt<1>("h0"), dataReg_S) @[Router.scala 74:26]
+    reg dataReg_W : UInt<32>, clock with :
+      reset => (UInt<1>("h0"), dataReg_W) @[Router.scala 75:26]
+    reg dataReg_E : UInt<32>, clock with :
+      reset => (UInt<1>("h0"), dataReg_E) @[Router.scala 76:26]
+    reg dataReg_CPU : UInt<32>, clock with :
+      reset => (UInt<1>("h0"), dataReg_CPU) @[Router.scala 77:28]
     reg stateReg : UInt<1>, clock with :
-      reset => (UInt<1>("h0"), stateReg) @[Router.scala 73:25]
-    reg dataReg_U : UInt<32>, clock with :
-      reset => (UInt<1>("h0"), dataReg_U) @[Router.scala 76:26]
-    reg dataReg_D : UInt<32>, clock with :
-      reset => (UInt<1>("h0"), dataReg_D) @[Router.scala 77:26]
-    reg dataReg_L : UInt<32>, clock with :
-      reset => (UInt<1>("h0"), dataReg_L) @[Router.scala 78:26]
-    reg dataReg_R : UInt<32>, clock with :
-      reset => (UInt<1>("h0"), dataReg_R) @[Router.scala 79:26]
-    node _T = eq(stateReg, UInt<1>("h0")) @[Router.scala 82:17]
-    node _T_1 = eq(stateReg, UInt<1>("h1")) @[Router.scala 84:16]
-    node _T_2 = eq(stateReg, UInt<1>("h1")) @[Router.scala 87:16]
-    node _T_3 = eq(stateReg, UInt<1>("h1")) @[Router.scala 90:16]
-    node _T_4 = eq(stateReg, UInt<1>("h1")) @[Router.scala 93:16]
-    node _GEN_0 = mux(io_in_R_read, io_in_R_din, dataReg_R) @[Router.scala 92:30]
-    node _GEN_1 = mux(io_in_L_read, io_in_L_din, dataReg_L) @[Router.scala 89:30]
-    node _GEN_2 = mux(io_in_L_read, dataReg_R, _GEN_0) @[Router.scala 89:30]
-    node _GEN_3 = mux(io_in_D_read, io_in_D_din, dataReg_D) @[Router.scala 86:31]
-    node _GEN_4 = mux(io_in_D_read, dataReg_L, _GEN_1) @[Router.scala 86:31]
-    node _GEN_5 = mux(io_in_D_read, dataReg_R, _GEN_2) @[Router.scala 86:31]
-    node _GEN_6 = mux(io_in_U_read, io_in_U_din, dataReg_U) @[Router.scala 83:25]
-    node _GEN_7 = mux(io_in_U_read, dataReg_D, _GEN_3) @[Router.scala 83:25]
-    node _GEN_8 = mux(io_in_U_read, dataReg_L, _GEN_4) @[Router.scala 83:25]
-    node _GEN_9 = mux(io_in_U_read, dataReg_R, _GEN_5) @[Router.scala 83:25]
-    node _T_5 = eq(stateReg, UInt<1>("h1")) @[Router.scala 96:24]
-    node _GEN_10 = mux(io_out_R_write, dataReg_R, UInt<1>("h0")) @[Router.scala 106:33]
-    node _GEN_11 = mux(io_out_R_write, UInt<1>("h0"), stateReg) @[Router.scala 106:33]
-    node _GEN_12 = mux(io_out_L_write, dataReg_L, UInt<1>("h0")) @[Router.scala 103:33]
-    node _GEN_13 = mux(io_out_L_write, UInt<1>("h0"), _GEN_11) @[Router.scala 103:33]
-    node _GEN_14 = mux(io_out_L_write, UInt<1>("h0"), _GEN_10) @[Router.scala 103:33]
-    node _GEN_15 = mux(io_out_D_write, dataReg_D, UInt<1>("h0")) @[Router.scala 100:33]
-    node _GEN_16 = mux(io_out_D_write, UInt<1>("h0"), _GEN_13) @[Router.scala 100:33]
-    node _GEN_17 = mux(io_out_D_write, UInt<1>("h0"), _GEN_12) @[Router.scala 100:33]
-    node _GEN_18 = mux(io_out_D_write, UInt<1>("h0"), _GEN_14) @[Router.scala 100:33]
-    node _GEN_19 = mux(io_out_U_write, dataReg_U, UInt<1>("h0")) @[Router.scala 97:26]
-    node _GEN_20 = mux(io_out_U_write, UInt<1>("h0"), _GEN_16) @[Router.scala 97:26]
-    node _GEN_21 = mux(io_out_U_write, UInt<1>("h0"), _GEN_15) @[Router.scala 97:26]
-    node _GEN_22 = mux(io_out_U_write, UInt<1>("h0"), _GEN_17) @[Router.scala 97:26]
-    node _GEN_23 = mux(io_out_U_write, UInt<1>("h0"), _GEN_18) @[Router.scala 97:26]
-    node _GEN_24 = mux(_T_5, _GEN_19, UInt<1>("h0")) @[Router.scala 96:34]
-    node _GEN_25 = mux(_T_5, _GEN_20, stateReg) @[Router.scala 96:34]
-    node _GEN_26 = mux(_T_5, _GEN_21, UInt<1>("h0")) @[Router.scala 96:34]
-    node _GEN_27 = mux(_T_5, _GEN_22, UInt<1>("h0")) @[Router.scala 96:34]
-    node _GEN_28 = mux(_T_5, _GEN_23, UInt<1>("h0")) @[Router.scala 96:34]
-    node _GEN_29 = mux(_T, _GEN_6, dataReg_U) @[Router.scala 82:28]
-    node _GEN_30 = mux(_T, _GEN_7, dataReg_D) @[Router.scala 82:28]
-    node _GEN_31 = mux(_T, _GEN_8, dataReg_L) @[Router.scala 82:28]
-    node _GEN_32 = mux(_T, _GEN_9, dataReg_R) @[Router.scala 82:28]
-    node _GEN_33 = mux(_T, UInt<1>("h0"), _GEN_24) @[Router.scala 82:28]
-    node _GEN_34 = mux(_T, stateReg, _GEN_25) @[Router.scala 82:28]
-    node _GEN_35 = mux(_T, UInt<1>("h0"), _GEN_26) @[Router.scala 82:28]
-    node _GEN_36 = mux(_T, UInt<1>("h0"), _GEN_27) @[Router.scala 82:28]
-    node _GEN_37 = mux(_T, UInt<1>("h0"), _GEN_28) @[Router.scala 82:28]
-    node dataReg = UInt<1>("h0")
-    io_out_U_write <= UInt<1>("h0") @[Router.scala 46:18]
-    io_out_U_dout <= _GEN_33 @[Router.scala 41:17 Router.scala 98:21]
-    io_out_D_write <= UInt<1>("h0") @[Router.scala 47:18]
-    io_out_D_dout <= _GEN_35 @[Router.scala 42:17 Router.scala 101:21]
-    io_out_L_write <= UInt<1>("h0") @[Router.scala 48:18]
-    io_out_L_dout <= _GEN_36 @[Router.scala 43:17 Router.scala 104:21]
-    io_out_R_write <= UInt<1>("h0") @[Router.scala 49:18]
-    io_out_R_dout <= _GEN_37 @[Router.scala 44:17 Router.scala 107:21]
+      reset => (UInt<1>("h0"), stateReg) @[Router.scala 80:25]
+    node destination_x = bits(dataReg, 1, 0) @[Router.scala 82:30]
+    node destination_y = bits(dataReg, 3, 2) @[Router.scala 83:30]
+    node _T = gt(destination_x, io_x) @[Router.scala 85:23]
+    node _T_1 = lt(destination_x, io_x) @[Router.scala 87:29]
+    node _T_2 = gt(destination_y, io_y) @[Router.scala 90:25]
+    node _T_3 = lt(destination_y, io_y) @[Router.scala 92:31]
+    node _GEN_0 = mux(_T_3, UInt<1>("h1"), UInt<1>("h0")) @[Router.scala 92:39]
+    node _GEN_1 = mux(_T_3, UInt<1>("h0"), UInt<1>("h1")) @[Router.scala 92:39]
+    node _GEN_2 = mux(_T_2, UInt<1>("h1"), UInt<1>("h0")) @[Router.scala 90:33]
+    node _GEN_3 = mux(_T_2, UInt<1>("h0"), _GEN_0) @[Router.scala 90:33]
+    node _GEN_4 = mux(_T_2, UInt<1>("h0"), _GEN_1) @[Router.scala 90:33]
+    node _GEN_5 = mux(_T_1, UInt<1>("h1"), UInt<1>("h0")) @[Router.scala 87:37]
+    node _GEN_6 = mux(_T_1, UInt<1>("h0"), _GEN_2) @[Router.scala 87:37]
+    node _GEN_7 = mux(_T_1, UInt<1>("h0"), _GEN_3) @[Router.scala 87:37]
+    node _GEN_8 = mux(_T_1, UInt<1>("h0"), _GEN_4) @[Router.scala 87:37]
+    node _GEN_9 = mux(_T, UInt<1>("h1"), UInt<1>("h0")) @[Router.scala 85:31]
+    node _GEN_10 = mux(_T, UInt<1>("h0"), _GEN_5) @[Router.scala 85:31]
+    node _GEN_11 = mux(_T, UInt<1>("h0"), _GEN_6) @[Router.scala 85:31]
+    node _GEN_12 = mux(_T, UInt<1>("h0"), _GEN_7) @[Router.scala 85:31]
+    node _GEN_13 = mux(_T, UInt<1>("h0"), _GEN_8) @[Router.scala 85:31]
+    node _T_4 = eq(stateReg, UInt<1>("h0")) @[Router.scala 100:17]
+    node _GEN_14 = mux(io_in_E_valid_in, UInt<1>("h1"), UInt<1>("h0")) @[Router.scala 124:34]
+    node _GEN_15 = mux(io_in_E_valid_in, UInt<1>("h1"), stateReg) @[Router.scala 124:34]
+    node _GEN_16 = mux(io_in_E_valid_in, io_in_E_din, dataReg_E) @[Router.scala 124:34]
+    node _GEN_17 = mux(io_in_E_valid_in, io_in_E_din, dataReg) @[Router.scala 124:34]
+    node _GEN_18 = mux(io_in_W_valid_in, UInt<1>("h1"), UInt<1>("h0")) @[Router.scala 119:34]
+    node _GEN_19 = mux(io_in_W_valid_in, UInt<1>("h1"), _GEN_15) @[Router.scala 119:34]
+    node _GEN_20 = mux(io_in_W_valid_in, io_in_W_din, dataReg_W) @[Router.scala 119:34]
+    node _GEN_21 = mux(io_in_W_valid_in, io_in_W_din, _GEN_17) @[Router.scala 119:34]
+    node _GEN_22 = mux(io_in_W_valid_in, UInt<1>("h0"), _GEN_14) @[Router.scala 119:34]
+    node _GEN_23 = mux(io_in_W_valid_in, dataReg_E, _GEN_16) @[Router.scala 119:34]
+    node _GEN_24 = mux(io_in_S_valid_in, UInt<1>("h1"), UInt<1>("h0")) @[Router.scala 114:35]
+    node _GEN_25 = mux(io_in_S_valid_in, UInt<1>("h1"), _GEN_19) @[Router.scala 114:35]
+    node _GEN_26 = mux(io_in_S_valid_in, io_in_S_din, dataReg_S) @[Router.scala 114:35]
+    node _GEN_27 = mux(io_in_S_valid_in, io_in_S_din, _GEN_21) @[Router.scala 114:35]
+    node _GEN_28 = mux(io_in_S_valid_in, UInt<1>("h0"), _GEN_18) @[Router.scala 114:35]
+    node _GEN_29 = mux(io_in_S_valid_in, dataReg_W, _GEN_20) @[Router.scala 114:35]
+    node _GEN_30 = mux(io_in_S_valid_in, UInt<1>("h0"), _GEN_22) @[Router.scala 114:35]
+    node _GEN_31 = mux(io_in_S_valid_in, dataReg_E, _GEN_23) @[Router.scala 114:35]
+    node _GEN_32 = mux(io_in_N_valid_in, UInt<1>("h1"), UInt<1>("h0")) @[Router.scala 109:29]
+    node _GEN_33 = mux(io_in_N_valid_in, UInt<1>("h1"), _GEN_25) @[Router.scala 109:29]
+    node _GEN_34 = mux(io_in_N_valid_in, io_in_N_din, dataReg_N) @[Router.scala 109:29]
+    node _GEN_35 = mux(io_in_N_valid_in, io_in_N_din, _GEN_27) @[Router.scala 109:29]
+    node _GEN_36 = mux(io_in_N_valid_in, UInt<1>("h0"), _GEN_24) @[Router.scala 109:29]
+    node _GEN_37 = mux(io_in_N_valid_in, dataReg_S, _GEN_26) @[Router.scala 109:29]
+    node _GEN_38 = mux(io_in_N_valid_in, UInt<1>("h0"), _GEN_28) @[Router.scala 109:29]
+    node _GEN_39 = mux(io_in_N_valid_in, dataReg_W, _GEN_29) @[Router.scala 109:29]
+    node _GEN_40 = mux(io_in_N_valid_in, UInt<1>("h0"), _GEN_30) @[Router.scala 109:29]
+    node _GEN_41 = mux(io_in_N_valid_in, dataReg_E, _GEN_31) @[Router.scala 109:29]
+    node _T_5 = eq(stateReg, UInt<1>("h1")) @[Router.scala 130:24]
+    node _GEN_42 = mux(io_out_N_ready_in, dataReg, UInt<32>("h0")) @[Router.scala 132:31]
+    node _GEN_43 = mux(io_out_N_ready_in, UInt<1>("h0"), stateReg) @[Router.scala 132:31]
+    node out_S_dout = UInt<32>("h0")
+    node _GEN_44 = mux(io_out_S_ready_in, dataReg, out_S_dout) @[Router.scala 137:31]
+    node _GEN_45 = mux(io_out_S_ready_in, UInt<1>("h0"), stateReg) @[Router.scala 137:31]
+    node out_W_dout = UInt<32>("h0")
+    node _GEN_46 = mux(io_out_W_ready_in, dataReg, out_W_dout) @[Router.scala 142:31]
+    node _GEN_47 = mux(io_out_W_ready_in, UInt<1>("h0"), stateReg) @[Router.scala 142:31]
+    node _GEN_48 = mux(io_out_E_ready_in, dataReg, UInt<32>("h0")) @[Router.scala 147:31]
+    node _GEN_49 = mux(io_out_E_ready_in, UInt<1>("h0"), stateReg) @[Router.scala 147:31]
+    node _GEN_50 = mux(io_out_E_valid_out, _GEN_48, UInt<32>("h0")) @[Router.scala 146:37]
+    node _GEN_51 = mux(io_out_E_valid_out, _GEN_49, stateReg) @[Router.scala 146:37]
+    node _GEN_52 = mux(io_out_W_valid_out, _GEN_46, out_W_dout) @[Router.scala 141:37]
+    node _GEN_53 = mux(io_out_W_valid_out, _GEN_47, _GEN_51) @[Router.scala 141:37]
+    node _GEN_54 = mux(io_out_W_valid_out, UInt<32>("h0"), _GEN_50) @[Router.scala 141:37]
+    node _GEN_55 = mux(io_out_S_valid_out, _GEN_44, out_S_dout) @[Router.scala 136:37]
+    node _GEN_56 = mux(io_out_S_valid_out, _GEN_45, _GEN_53) @[Router.scala 136:37]
+    node _GEN_57 = mux(io_out_S_valid_out, out_W_dout, _GEN_52) @[Router.scala 136:37]
+    node _GEN_58 = mux(io_out_S_valid_out, UInt<32>("h0"), _GEN_54) @[Router.scala 136:37]
+    node _GEN_59 = mux(io_out_N_valid_out, _GEN_42, UInt<32>("h0")) @[Router.scala 131:30]
+    node _GEN_60 = mux(io_out_N_valid_out, _GEN_43, _GEN_56) @[Router.scala 131:30]
+    node _GEN_61 = mux(io_out_N_valid_out, out_S_dout, _GEN_55) @[Router.scala 131:30]
+    node _GEN_62 = mux(io_out_N_valid_out, out_W_dout, _GEN_57) @[Router.scala 131:30]
+    node _GEN_63 = mux(io_out_N_valid_out, UInt<32>("h0"), _GEN_58) @[Router.scala 131:30]
+    node _GEN_64 = mux(_T_5, _GEN_59, UInt<32>("h0")) @[Router.scala 130:33]
+    node _GEN_65 = mux(_T_5, _GEN_60, stateReg) @[Router.scala 130:33]
+    node _GEN_66 = mux(_T_5, _GEN_61, out_S_dout) @[Router.scala 130:33]
+    node _GEN_67 = mux(_T_5, _GEN_62, out_W_dout) @[Router.scala 130:33]
+    node _GEN_68 = mux(_T_5, _GEN_63, UInt<32>("h0")) @[Router.scala 130:33]
+    node _GEN_69 = mux(_T_4, UInt<1>("h0"), _GEN_12) @[Router.scala 100:26]
+    node _GEN_87 = mux(_T_4, UInt<32>("h0"), _GEN_64) @[Router.scala 100:26]
+    node out_N_dout = _GEN_87 @[Router.scala 133:20]
+    node _GEN_70 = mux(_T_4, UInt<1>("h0"), out_N_dout) @[Router.scala 100:26]
+    node _GEN_71 = mux(_T_4, UInt<1>("h0"), _GEN_11) @[Router.scala 100:26]
+    node _GEN_72 = mux(_T_4, UInt<1>("h0"), _GEN_66) @[Router.scala 100:26]
+    node _GEN_73 = mux(_T_4, UInt<1>("h0"), _GEN_10) @[Router.scala 100:26]
+    node _GEN_74 = mux(_T_4, UInt<1>("h0"), _GEN_67) @[Router.scala 100:26]
+    node _GEN_75 = mux(_T_4, UInt<1>("h0"), _GEN_9) @[Router.scala 100:26]
+    node _GEN_88 = mux(_T_4, UInt<32>("h0"), _GEN_68) @[Router.scala 100:26]
+    node out_E_dout = _GEN_88 @[Router.scala 148:20]
+    node _GEN_76 = mux(_T_4, UInt<1>("h0"), out_E_dout) @[Router.scala 100:26]
+    node _GEN_77 = mux(_T_4, _GEN_32, UInt<1>("h0")) @[Router.scala 100:26]
+    node _GEN_78 = mux(_T_4, _GEN_33, _GEN_65) @[Router.scala 100:26]
+    node _GEN_79 = mux(_T_4, _GEN_34, dataReg_N) @[Router.scala 100:26]
+    node _GEN_80 = mux(_T_4, _GEN_35, dataReg) @[Router.scala 100:26]
+    node _GEN_81 = mux(_T_4, _GEN_36, UInt<1>("h0")) @[Router.scala 100:26]
+    node _GEN_82 = mux(_T_4, _GEN_37, dataReg_S) @[Router.scala 100:26]
+    node _GEN_83 = mux(_T_4, _GEN_38, UInt<1>("h0")) @[Router.scala 100:26]
+    node _GEN_84 = mux(_T_4, _GEN_39, dataReg_W) @[Router.scala 100:26]
+    node _GEN_85 = mux(_T_4, _GEN_40, UInt<1>("h0")) @[Router.scala 100:26]
+    node _GEN_86 = mux(_T_4, _GEN_41, dataReg_E) @[Router.scala 100:26]
+    node out_CPU_dout = UInt<32>("h0")
+    io_in_N_ready_out <= _GEN_77 @[Router.scala 66:21 Router.scala 110:25]
+    io_in_S_ready_out <= _GEN_81 @[Router.scala 67:21 Router.scala 115:25]
+    io_in_W_ready_out <= _GEN_83 @[Router.scala 68:21 Router.scala 120:25]
+    io_in_E_ready_out <= _GEN_85 @[Router.scala 69:21 Router.scala 125:25]
+    io_in_CPU_ready_out <= UInt<1>("h0") @[Router.scala 70:23]
+    io_out_N_valid_out <= _GEN_69 @[Router.scala 60:22 Router.scala 93:26 Router.scala 101:24]
+    io_out_N_dout <= _GEN_70 @[Router.scala 54:17 Router.scala 102:19]
+    io_out_S_valid_out <= _GEN_71 @[Router.scala 61:22 Router.scala 91:26 Router.scala 103:24]
+    io_out_S_dout <= _GEN_72 @[Router.scala 55:17 Router.scala 104:19 Router.scala 138:23]
+    io_out_W_valid_out <= _GEN_73 @[Router.scala 62:22 Router.scala 88:24 Router.scala 105:24]
+    io_out_W_dout <= _GEN_74 @[Router.scala 56:17 Router.scala 106:19 Router.scala 143:23]
+    io_out_E_valid_out <= _GEN_75 @[Router.scala 63:22 Router.scala 86:24 Router.scala 107:24]
+    io_out_E_dout <= _GEN_76 @[Router.scala 57:17 Router.scala 108:19]
+    io_out_CPU_valid_out <= _GEN_13 @[Router.scala 64:24 Router.scala 95:28]
+    io_out_CPU_dout <= out_CPU_dout @[Router.scala 58:19]
     som <= mux(reset, UInt<1>("h0"), som)
-    stateReg <= mux(reset, UInt<1>("h0"), _GEN_34) @[Router.scala 99:16 Router.scala 102:16 Router.scala 105:16 Router.scala 108:16]
-    dataReg_U <= mux(reset, UInt<32>("h0"), _GEN_29) @[Router.scala 85:17]
-    dataReg_D <= mux(reset, UInt<32>("h0"), _GEN_30) @[Router.scala 88:17]
-    dataReg_L <= mux(reset, UInt<32>("h0"), _GEN_31) @[Router.scala 91:17]
-    dataReg_R <= mux(reset, UInt<32>("h0"), _GEN_32) @[Router.scala 94:17]
+    dataReg <= mux(reset, UInt<32>("h0"), _GEN_80) @[Router.scala 113:15 Router.scala 118:15 Router.scala 123:15 Router.scala 128:15]
+    dataReg_N <= mux(reset, UInt<32>("h0"), _GEN_79) @[Router.scala 112:17]
+    dataReg_S <= mux(reset, UInt<32>("h0"), _GEN_82) @[Router.scala 117:17]
+    dataReg_W <= mux(reset, UInt<32>("h0"), _GEN_84) @[Router.scala 122:17]
+    dataReg_E <= mux(reset, UInt<32>("h0"), _GEN_86) @[Router.scala 127:17]
+    dataReg_CPU <= mux(reset, UInt<32>("h0"), dataReg_CPU)
+    stateReg <= mux(reset, UInt<1>("h0"), _GEN_78) @[Router.scala 111:16 Router.scala 116:16 Router.scala 121:16 Router.scala 126:16 Router.scala 134:18 Router.scala 139:18 Router.scala 144:18 Router.scala 149:18]
