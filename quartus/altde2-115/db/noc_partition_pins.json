@@ -2,20 +2,7 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : [
-				{
-					"name" : "io_led",
-					"strict" : false
-				},
-				{
-					"name" : "reset",
-					"strict" : false
-				},
-				{
-					"name" : "clock",
-					"strict" : false
-				}
-			]
+			"pins" : []
 		}
 	]
 }

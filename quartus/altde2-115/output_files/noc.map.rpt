@@ -1,5 +1,5 @@
 Analysis & Synthesis report for noc
-Fri Dec 25 11:45:56 2020
+Tue Jan 12 15:08:47 2021
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -14,10 +14,13 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "Router:router4"
+ 10. Port Connectivity Checks: "Router:router3"
+ 11. Port Connectivity Checks: "Router:router2"
+ 12. Port Connectivity Checks: "Router:router1"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +47,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Dec 25 11:45:56 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jan 12 15:08:47 2021       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; noc                                         ;
 ; Top-level Entity Name              ; noc                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 45                                          ;
-;     Total combinational functions  ; 45                                          ;
-;     Dedicated logic registers      ; 33                                          ;
-; Total registers                    ; 33                                          ;
-; Total pins                         ; 3                                           ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 36                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -156,53 +159,51 @@ agreement for further details.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                    ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                      ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------+---------+
-; ../../noc.v                      ; yes             ; User Verilog HDL File  ; /home/patmos/Desktop/network-on-chip-chisel/noc.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                      ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                        ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
+; ../../noc.v                      ; yes             ; User Verilog HDL File  ; /home/patmos/Documents/network-on-chip-chisel/noc.v ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 45          ;
-;                                             ;             ;
-; Total combinational functions               ; 45          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 10          ;
-;     -- 3 input functions                    ; 1           ;
-;     -- <=2 input functions                  ; 34          ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 14          ;
-;     -- arithmetic mode                      ; 31          ;
-;                                             ;             ;
-; Total registers                             ; 33          ;
-;     -- Dedicated logic registers            ; 33          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 3           ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 33          ;
-; Total fan-out                               ; 212         ;
-; Average fan-out                             ; 2.52        ;
-+---------------------------------------------+-------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 36    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 36    ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,7 +211,7 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |noc                       ; 45 (45)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 3    ; 0            ; |noc                ; noc         ; work         ;
+; |noc                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 36   ; 0            ; |noc                ; noc         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -220,8 +221,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 33    ;
-; Number of registers using Synchronous Clear  ; 32    ;
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -230,36 +231,77 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |noc|cntReg[7]             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Router:router4"                                                                                     ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; io_in_CPU_valid_in   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_in_CPU_din        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_out_CPU_valid_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_out_CPU_dout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_x[1]              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_x[0]              ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; io_y[1]              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_y[0]              ; Input  ; Info     ; Stuck at VCC                                                                        ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Router:router3"                                                                                     ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; io_in_CPU_valid_in   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_in_CPU_din        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_out_CPU_valid_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_out_CPU_ready_in  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_out_CPU_dout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_x[1]              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_x[0]              ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; io_y                 ; Input  ; Info     ; Stuck at GND                                                                        ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Router:router2"                                                                                     ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; io_in_CPU_valid_in   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_in_CPU_din        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_out_CPU_valid_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_out_CPU_ready_in  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_out_CPU_dout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_x                 ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_y[1]              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_y[0]              ; Input  ; Info     ; Stuck at VCC                                                                        ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Router:router1"                                                                                     ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; io_out_CPU_valid_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_out_CPU_ready_in  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_out_CPU_dout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_x                 ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_y                 ; Input  ; Info     ; Stuck at GND                                                                        ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 3                           ;
-; cycloneiii_ff         ; 33                          ;
-;     SCLR              ; 32                          ;
-;     plain             ; 1                           ;
-; cycloneiii_lcell_comb ; 45                          ;
-;     arith             ; 31                          ;
-;         2 data inputs ; 31                          ;
-;     normal            ; 14                          ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 10                          ;
-;                       ;                             ;
-; Max LUT depth         ; 4.10                        ;
-; Average LUT depth     ; 3.41                        ;
-+-----------------------+-----------------------------+
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 36                              ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
 
 
 +-------------------------------+
@@ -277,26 +319,77 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Fri Dec 25 11:45:46 2020
+    Info: Processing started: Tue Jan 12 15:08:33 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off noc -c noc
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /home/patmos/Desktop/network-on-chip-chisel/noc.v
-    Info (12023): Found entity 1: noc File: /home/patmos/Desktop/network-on-chip-chisel/noc.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file /home/patmos/Documents/network-on-chip-chisel/noc.v
+    Info (12023): Found entity 1: Router File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 1
+    Info (12023): Found entity 2: noc File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 393
 Info (12127): Elaborating entity "noc" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at noc.v(14): object "_GEN_0" assigned a value but never read File: /home/patmos/Desktop/network-on-chip-chisel/noc.v Line: 14
-Warning (10036): Verilog HDL or VHDL warning at noc.v(15): object "_GEN_1" assigned a value but never read File: /home/patmos/Desktop/network-on-chip-chisel/noc.v Line: 15
-Info (286030): Timing-Driven Synthesis is running
+Warning (10175): Verilog HDL warning at noc.v(756): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 756
+Warning (10175): Verilog HDL warning at noc.v(767): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 767
+Warning (10175): Verilog HDL warning at noc.v(778): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 778
+Warning (10175): Verilog HDL warning at noc.v(789): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 789
+Warning (10175): Verilog HDL warning at noc.v(800): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 800
+Warning (10175): Verilog HDL warning at noc.v(811): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 811
+Warning (10175): Verilog HDL warning at noc.v(822): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 822
+Warning (10175): Verilog HDL warning at noc.v(833): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 833
+Info (12128): Elaborating entity "Router" for hierarchy "Router:router1" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 567
+Warning (10175): Verilog HDL warning at noc.v(308): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 308
+Warning (10175): Verilog HDL warning at noc.v(319): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 319
+Warning (10175): Verilog HDL warning at noc.v(330): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 330
+Warning (10175): Verilog HDL warning at noc.v(341): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 341
+Warning (10175): Verilog HDL warning at noc.v(352): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 352
+Warning (10175): Verilog HDL warning at noc.v(363): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 363
+Warning (10175): Verilog HDL warning at noc.v(374): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 374
+Warning (10175): Verilog HDL warning at noc.v(385): ignoring unsupported system task File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 385
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 48 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 45 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 953 megabytes
-    Info: Processing ended: Fri Dec 25 11:45:56 2020
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:13
+Warning (21074): Design contains 36 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clock" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 394
+    Warning (15610): No output dependent on input pin "reset" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 395
+    Warning (15610): No output dependent on input pin "io_cpu_din[0]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[1]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[2]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[3]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[4]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[5]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[6]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[7]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[8]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[9]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[10]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[11]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[12]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[13]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[14]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[15]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[16]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[17]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[18]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[19]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[20]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[21]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[22]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[23]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[24]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[25]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[26]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[27]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[28]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[29]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[30]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_din[31]" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 396
+    Warning (15610): No output dependent on input pin "io_cpu_valid_in" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 397
+    Warning (15610): No output dependent on input pin "io_cpu_ready_in" File: /home/patmos/Documents/network-on-chip-chisel/noc.v Line: 399
+Info (21057): Implemented 36 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 36 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
+    Info: Peak virtual memory: 939 megabytes
+    Info: Processing ended: Tue Jan 12 15:08:47 2021
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:18
 
 

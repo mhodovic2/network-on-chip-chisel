@@ -4,8 +4,9 @@ import chisel3._
 import chisel3.iotesters._
 
 class nocTest(dut:noc) extends PeekPokeTester(dut) {
-  step(1)
-  poke(dut.io.cpu_din, value = 5L)
+  //step(1)
+
+  poke(dut.io.cpu_din, value = "b00000000000000000000000000001010".U /*0x0000000AL*/)
   poke(dut.io.cpu_valid_in, value = 1L)
 
   step(1)
@@ -18,7 +19,7 @@ class nocTest(dut:noc) extends PeekPokeTester(dut) {
   poke(dut.io.cpu_valid_in, value = 0L)
 
 
-  step(2)
+  step(6)
 
 
 

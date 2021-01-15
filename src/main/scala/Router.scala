@@ -69,7 +69,7 @@ class Router() extends MultiIOModule{
   io.in_E.ready_out := 0.U
   io.in_CPU.ready_out := 0.U
 
-  val dataReg = RegInit(0.U(32.W))
+  val dataReg = RegInit(0.U(size.W))
   val dataReg_N = RegInit(0.U(size.W))
   val dataReg_S = RegInit(0.U(size.W))
   val dataReg_W = RegInit(0.U(size.W))
@@ -82,11 +82,11 @@ class Router() extends MultiIOModule{
   val destination_y = dataReg(1,0)
   val destination_x = dataReg(3,2)
 
-  printf("Dest_x je %d, a dest_y je %d\n", destination_x, destination_y)
-  printf("Registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, dataReg)
-  printf("State registar od routera (%d,%d) je trenutno: %d\n", io.x, io.y, stateReg)
-  printf("Valid out South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.valid_out)
-  printf("Ready in South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.ready_in)
+  printf("Dest_x is %d, a dest_y is %d\n", destination_x, destination_y)
+  printf("Data Registar of router (%d,%d) is: %d\n", io.x, io.y, dataReg)
+  printf("State registar of router (%d,%d) is: %d\n", io.x, io.y, stateReg)
+  //printf("Valid out South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.valid_out)
+  //printf("Ready in South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.ready_in)
 
 
   when(stateReg === 0.B) {
@@ -142,6 +142,7 @@ class Router() extends MultiIOModule{
       } .elsewhen(destination_x < io.x) {
         io.out_N.valid_out := 1.U
       } .otherwise {
+        printf("uso cpu\n")
         io.out_CPU.valid_out := 1.U
       }
     }
@@ -172,7 +173,7 @@ class Router() extends MultiIOModule{
       }
     } .elsewhen(io.out_CPU.valid_out) {
       when(io.out_CPU.ready_in) {
-        out_CPU_dout := dataReg
+        out_CPU_dout := dataReg/*(31,4)*/
         stateReg := 0.B
         dataReg := 0.U
       }
