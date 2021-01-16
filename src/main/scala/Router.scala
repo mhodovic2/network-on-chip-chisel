@@ -72,7 +72,6 @@ class Router() extends MultiIOModule{
   val dataReg_E = RegInit(0.U(size.W))
   val dataReg_NI = RegInit(0.U(size.W))
 
-
   val stateReg = RegInit(0.B)
 
   val destination_y = dataReg(1,0)
@@ -81,10 +80,6 @@ class Router() extends MultiIOModule{
   printf("Dest_x is %d, a dest_y is %d\n", destination_x, destination_y)
   printf("Data Registar of router (%d,%d) is: %d\n", io.x, io.y, dataReg)
   printf("State registar of router (%d,%d) is: %d\n", io.x, io.y, stateReg)
-
-  //printf("Valid out South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.valid_out)
-  //printf("Ready in South od routera (%d,%d) je trenutno: %d\n", io.x, io.y, io.out_S.ready_in)
-
 
   when(stateReg === 0.B) {
     io.out_N.valid_out := 0.U

@@ -1,8 +1,8 @@
 package noc
 
 import chisel3._
-import router.{Router}
-
+import router.{Router, RX, TX}
+import networkinterface.NetworkInterface
 
 
 class noc extends MultiIOModule {
@@ -10,6 +10,7 @@ class noc extends MultiIOModule {
     val NI_din = Input(UInt(32.W))
     val NI_valid_in = Input(Bool())
     val NI_ready_in = Input(Bool())
+
     val ni_1_data = Output(UInt(32.W))
     val ni_2_data = Output(UInt(32.W))
     val ni_3_data = Output(UInt(32.W))
@@ -19,9 +20,14 @@ class noc extends MultiIOModule {
     val ni_7_data = Output(UInt(32.W))
     val ni_8_data = Output(UInt(32.W))
     val ni_9_data = Output(UInt(32.W))
+    //val neki_tx = new TX()
+    //val ni_1 = Module(new NetworkInterface())
   })
+  //io.ni_1.io.ni_out.dout := 0.U
+  //io.ni_1.io.ni_out.valid_out := 0.B
 
-
+  //io.neki_tx.dout := 0.U
+ //io.neki_tx.valid_out := 0.B
 
   val size = 32
   val som = WireInit(0.U(size.W))
@@ -35,6 +41,8 @@ class noc extends MultiIOModule {
   val router7 = Module(new Router())
   val router8 = Module(new Router())
   val router9 = Module(new Router())
+
+  //io.neki_tx.ready_in := router1.io.in_NI.ready_out
 
   router1.io.x := 0.U;
   router1.io.y := 0.U;
@@ -207,6 +215,8 @@ class noc extends MultiIOModule {
   router9.io.out_W.ready_in := router8.io.in_E.ready_out
   router9.io.out_E.ready_in := router7.io.in_W.ready_out
 
+  //io.ni_1.io.ni_out.ready_in := router1.io.in_NI.ready_out
+
   io.ni_1_data := router1.io.out_NI.dout
   io.ni_2_data := router2.io.out_NI.dout
   io.ni_3_data := router3.io.out_NI.dout
@@ -218,13 +228,6 @@ class noc extends MultiIOModule {
   io.ni_9_data := router9.io.out_NI.dout
 
 
-  /*
-    io.ni_1.NI2Router_Out.ready_in := router1.io.in_NI.ready_out
-    io.ni_1.NI2Router_In.valid_in := router1.io.out_NI.valid_out
-    io.ni_1.NI2Router_In.din := router1.io.out_NI.dout
-  */
-
-
   printf("Router 1 NI data input is %d\n", router1.io.in_NI.din )
   printf("Router 1 East data output is %d\n", router1.io.out_E.dout )
   printf("Router 2 West data input is %d\n", router2.io.in_W.din)
@@ -232,19 +235,13 @@ class noc extends MultiIOModule {
   printf("Router 2 South valid_out output is %d\n", router2.io.out_S.valid_out )
   printf("Router 2 South ready_in input is %d\n", router2.io.out_S.ready_in )
 
-
-  //printf("Router 4 North data ulaz je %d\n", router4.io.in_N.din )
-
-
-
-  //printf("Router 4 NI dout izlaz je %d\n", router4.io.out_NI.dout )
   printf("Router 9 NI dout is %d\n", router9.io.out_NI.dout )
+  printf("IO 9 NI dout is %d\n", io.ni_9_data )
   printf("---------------------------------------------------\n")
-  //printf("Router 4 NI valid out izlaz je %d\n", router4.io.out_NI.valid_out )
-
 
 
   //kao NI
+
   router1.io.in_NI.din := io.NI_din
   router1.io.in_NI.valid_in := io.NI_valid_in
   router1.io.out_NI.ready_in := som
@@ -280,9 +277,6 @@ class noc extends MultiIOModule {
   router9.io.in_NI.din := som
   router9.io.in_NI.valid_in := som
   router9.io.out_NI.ready_in := io.NI_ready_in
-
-
-
 }
 
 object noc extends App {
