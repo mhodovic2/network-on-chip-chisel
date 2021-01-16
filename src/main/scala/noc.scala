@@ -7,9 +7,11 @@ import router.{Router}
 
 class noc extends MultiIOModule {
   val io = IO(new Bundle{
+    /*
     val NI_din = Input(UInt(32.W))
     val NI_valid_in = Input(Bool())
-    val NI_ready_in = Input(Bool())
+    val NI_ready_in = Input(Bool())*/
+
     val ni_1_data = Output(UInt(32.W))
     val ni_2_data = Output(UInt(32.W))
     val ni_3_data = Output(UInt(32.W))
@@ -19,12 +21,43 @@ class noc extends MultiIOModule {
     val ni_7_data = Output(UInt(32.W))
     val ni_8_data = Output(UInt(32.W))
     val ni_9_data = Output(UInt(32.W))
-  })
 
+    val ni_1_din = Input(UInt(32.W))
+    val ni_2_din = Input(UInt(32.W))
+    val ni_3_din = Input(UInt(32.W))
+    val ni_4_din = Input(UInt(32.W))
+    val ni_5_din = Input(UInt(32.W))
+    val ni_6_din = Input(UInt(32.W))
+    val ni_7_din = Input(UInt(32.W))
+    val ni_8_din = Input(UInt(32.W))
+    val ni_9_din = Input(UInt(32.W))
+
+    val ni_1_valid_in = Input(Bool())
+    val ni_2_valid_in = Input(Bool())
+    val ni_3_valid_in = Input(Bool())
+    val ni_4_valid_in = Input(Bool())
+    val ni_5_valid_in = Input(Bool())
+    val ni_6_valid_in = Input(Bool())
+    val ni_7_valid_in = Input(Bool())
+    val ni_8_valid_in = Input(Bool())
+    val ni_9_valid_in = Input(Bool())
+
+    val ni_1_ready_in = Input(Bool())
+    val ni_2_ready_in = Input(Bool())
+    val ni_3_ready_in = Input(Bool())
+    val ni_4_ready_in = Input(Bool())
+    val ni_5_ready_in = Input(Bool())
+    val ni_6_ready_in = Input(Bool())
+    val ni_7_ready_in = Input(Bool())
+    val ni_8_ready_in = Input(Bool())
+    val ni_9_ready_in = Input(Bool())
+
+  })
 
 
   val size = 32
   val som = WireInit(0.U(size.W))
+
 
   val router1 = Module(new Router())
   val router2 = Module(new Router())
@@ -245,41 +278,41 @@ class noc extends MultiIOModule {
 
 
   //kao NI
-  router1.io.in_NI.din := io.NI_din
-  router1.io.in_NI.valid_in := io.NI_valid_in
-  router1.io.out_NI.ready_in := som
+  router1.io.in_NI.din := io.ni_1_din
+  router1.io.in_NI.valid_in := io.ni_1_valid_in
+  router1.io.out_NI.ready_in := io.ni_1_ready_in
 
-  router2.io.in_NI.din := som
-  router2.io.in_NI.valid_in := som
-  router2.io.out_NI.ready_in := som
+  router2.io.in_NI.din := io.ni_2_din
+  router2.io.in_NI.valid_in := io.ni_2_valid_in
+  router2.io.out_NI.ready_in := io.ni_2_ready_in
 
-  router3.io.in_NI.din := som
-  router3.io.in_NI.valid_in := som
-  router3.io.out_NI.ready_in := som
+  router3.io.in_NI.din := io.ni_3_din
+  router3.io.in_NI.valid_in := io.ni_3_valid_in
+  router3.io.out_NI.ready_in := io.ni_3_ready_in
 
-  router4.io.in_NI.din := som
-  router4.io.in_NI.valid_in := som
-  router4.io.out_NI.ready_in := som
+  router4.io.in_NI.din := io.ni_4_din
+  router4.io.in_NI.valid_in := io.ni_4_valid_in
+  router4.io.out_NI.ready_in := io.ni_4_ready_in
 
-  router5.io.in_NI.din := som
-  router5.io.in_NI.valid_in := som
-  router5.io.out_NI.ready_in := som
+  router5.io.in_NI.din := io.ni_5_din
+  router5.io.in_NI.valid_in := io.ni_5_valid_in
+  router5.io.out_NI.ready_in := io.ni_5_ready_in
 
-  router6.io.in_NI.din := som
-  router6.io.in_NI.valid_in := som
-  router6.io.out_NI.ready_in := som
+  router6.io.in_NI.din := io.ni_6_din
+  router6.io.in_NI.valid_in := io.ni_6_valid_in
+  router6.io.out_NI.ready_in := io.ni_6_ready_in
 
-  router7.io.in_NI.din := som
-  router7.io.in_NI.valid_in := som
-  router7.io.out_NI.ready_in := som
+  router7.io.in_NI.din := io.ni_7_din
+  router7.io.in_NI.valid_in := io.ni_7_valid_in
+  router7.io.out_NI.ready_in := io.ni_7_ready_in
 
-  router8.io.in_NI.din := som
-  router8.io.in_NI.valid_in := som
-  router8.io.out_NI.ready_in := som
+  router8.io.in_NI.din := io.ni_8_din
+  router8.io.in_NI.valid_in := io.ni_8_valid_in
+  router8.io.out_NI.ready_in := io.ni_8_ready_in
 
-  router9.io.in_NI.din := som
-  router9.io.in_NI.valid_in := som
-  router9.io.out_NI.ready_in := io.NI_ready_in
+  router9.io.in_NI.din := io.ni_9_din
+  router9.io.in_NI.valid_in := io.ni_9_valid_in
+  router9.io.out_NI.ready_in := io.ni_9_ready_in
 
 
 

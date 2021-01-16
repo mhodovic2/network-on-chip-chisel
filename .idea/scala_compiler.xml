@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="chisel-examples,chisel-examples_1179,network-on-chip-chisel,network-on-chip-chisel_9329" />
+    <profile name="sbt 1" modules="Documents.network-on-chip-chisel,chisel-examples,chisel-examples_1179,network-on-chip-chisel,network-on-chip-chisel_3696,network-on-chip-chisel_9329" />
   </component>
 </project>

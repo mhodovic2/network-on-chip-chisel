@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Documents/network-on-chip-chisel/.idea/modules/Documents.network-on-chip-chisel.iml" filepath="$USER_HOME$/Documents/network-on-chip-chisel/.idea/modules/Documents.network-on-chip-chisel.iml" />
       <module fileurl="file://$PROJECT_DIR$/network-on-chip-chisel.iml" filepath="$PROJECT_DIR$/network-on-chip-chisel.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/network-on-chip-chisel-build.iml" filepath="$PROJECT_DIR$/.idea/modules/network-on-chip-chisel-build.iml" />
+      <module fileurl="file://$USER_HOME$/Documents/network-on-chip-chisel/.idea/modules/project.network-on-chip-chisel-build.iml" filepath="$USER_HOME$/Documents/network-on-chip-chisel/.idea/modules/project.network-on-chip-chisel-build.iml" />
     </modules>
   </component>
 </project>
