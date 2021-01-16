@@ -1,6 +1,6 @@
 [0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
-[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 79 products, 8 sources, 3 libraries[0m
-[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/MeshTX.scala, ${BASE}/src/main/scala/OCPInterface.scala, ${BASE}/src/main/scala/XBar.scala, ${BASE}/src/main/scala/Router.scala, ${BASE}/src/main/scala/NetworkInterface.scala, ${BASE}/src/main/scala/MeshRX.scala, ${BASE}/src/main/scala/noc.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 68 products, 7 sources, 2 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/MeshTX.scala, ${BASE}/src/main/scala/OCPInterface.scala, ${BASE}/src/main/scala/Router.scala, ${BASE}/src/main/scala/NetworkInterface.scala, ${BASE}/src/main/scala/MeshRX.scala, ${BASE}/src/main/scala/noc.scala)[0m
 [0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(${BASE}/src/main/scala/dfg.scala), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
 [0m[[0m[0mdebug[0m] [0m[0mNo changes[0m

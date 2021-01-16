@@ -1,20 +1,29 @@
 [0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/test-classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$5.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$delayedInit$body.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$4.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$5.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$delayedInit$body.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$4.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$5.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$delayedInit$body.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nocTest$$anonfun$4.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /home/patmos/Documents/network-on-chip-chisel/target/scala-2.11/test-classes.bak[0m

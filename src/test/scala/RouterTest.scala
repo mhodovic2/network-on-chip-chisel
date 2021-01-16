@@ -8,12 +8,12 @@ class RouterTest(dut:Router) extends PeekPokeTester(dut) {
   poke(dut.io.in_S.valid_in, value=0.B)
   poke(dut.io.in_W.valid_in, value=0.B)
   poke(dut.io.in_E.valid_in, value=0.B)
-  poke(dut.io.in_CPU.valid_in, value=0.B)
+  poke(dut.io.in_NI.valid_in, value=0.B)
   poke(dut.io.out_N.ready_in, value=0.B) //if we don't do this, we can't be sure if it is 0 or 1
   poke(dut.io.out_S.ready_in, value=0.B)
   poke(dut.io.out_W.ready_in, value=0.B)
   poke(dut.io.out_E.ready_in, value=0.B)
-  poke(dut.io.out_CPU.ready_in, value=0.B)
+  poke(dut.io.out_NI.ready_in, value=0.B)
   poke(dut.io.x, value = 0.U)
   poke(dut.io.y, value = 0.U)
 
@@ -38,20 +38,20 @@ class RouterTest(dut:Router) extends PeekPokeTester(dut) {
   println("Output S is " + peek(dut.io.out_S).toString())
   println("Output W is " + peek(dut.io.out_W).toString())
   println("Output E is " + peek(dut.io.out_E).toString())
-  println("Output CPU is " + peek(dut.io.out_CPU).toString())
+  println("Output NI is " + peek(dut.io.out_NI).toString())
   step(1)
   expect(dut.io.out_E.dout, 1L)
   println("Output N is " + peek(dut.io.out_N).toString())
   println("Output S is " + peek(dut.io.out_S).toString())
   println("Output W is " + peek(dut.io.out_W).toString())
   println("Output E is " + peek(dut.io.out_E).toString())
-  println("Output CPU is " + peek(dut.io.out_CPU).toString())
+  println("Output NI is " + peek(dut.io.out_NI).toString())
   step(1)
   println("Output N is " + peek(dut.io.out_N).toString())
   println("Output S is " + peek(dut.io.out_S).toString())
   println("Output W is " + peek(dut.io.out_W).toString())
   println("Output E is " + peek(dut.io.out_E).toString())
-  println("Output CPU is " + peek(dut.io.out_CPU).toString())
+  println("Output NI is " + peek(dut.io.out_NI).toString())
 
 
 
