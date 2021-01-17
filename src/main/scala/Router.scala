@@ -86,8 +86,8 @@ class Router() extends MultiIOModule{
 
   printf("Dest_x is %d, a dest_y is %d\n", destination_x, destination_y)
   printf("Data Registar of router (%d,%d) is: %d\n", io.x, io.y, dataReg)
-  printf("Data Registar N of router (%d,%d) is: %d\n", io.x, io.y, dataReg_N)
-  printf("Data Registar S of router (%d,%d) is: %d\n", io.x, io.y, dataReg_S)
+  //printf("Data Registar N of router (%d,%d) is: %d\n", io.x, io.y, dataReg_N)
+  //printf("Data Registar S of router (%d,%d) is: %d\n", io.x, io.y, dataReg_S)
 
   printf("State registar of router (%d,%d) is: %d\n", io.x, io.y, stateReg)
 

@@ -37,18 +37,30 @@ class nocTest(dut:noc) extends PeekPokeTester(dut) {
     random_array(i) = a
     println("Rand vrijednost je " + random_array(i))
   }
-  //val table = VecInit (random_array.map(_.U(8.W)))
-  poke(dut.io.ni_1_din, value = 4L)
+  
+  //RANDOM UNIFORM TRAFFIC PATTERN
+  poke(dut.io.ni_1_din, random_array(0))
   poke(dut.io.ni_2_din, random_array(1))
   poke(dut.io.ni_3_din, random_array(2))
-  poke(dut.io.ni_4_din, value = 0L)
+  poke(dut.io.ni_4_din, random_array(3))
   poke(dut.io.ni_5_din, random_array(4))
   poke(dut.io.ni_6_din, random_array(5))
   poke(dut.io.ni_7_din, random_array(6))
   poke(dut.io.ni_8_din, random_array(7))
   poke(dut.io.ni_9_din, random_array(8))
 
-
+  //HOT POINT TRAFFIC PATTERN
+  /*
+  poke(dut.io.ni_1_din, value = 5L)
+  poke(dut.io.ni_2_din, value = 5L)
+  poke(dut.io.ni_3_din, value = 5L)
+  poke(dut.io.ni_4_din, value = 5L)
+  poke(dut.io.ni_5_din, value = 5L)
+  poke(dut.io.ni_6_din, value = 5L)
+  poke(dut.io.ni_7_din, value = 5L)
+  poke(dut.io.ni_8_din, value = 5L)
+  poke(dut.io.ni_9_din, value = 5L)
+  */
 
   step(1) //Step 1
   println("Step 1")
