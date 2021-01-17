@@ -51,7 +51,6 @@ class noc extends MultiIOModule {
     val ni_7_ready_in = Input(Bool())
     val ni_8_ready_in = Input(Bool())
     val ni_9_ready_in = Input(Bool())
-
   })
 
 
@@ -251,31 +250,7 @@ class noc extends MultiIOModule {
   io.ni_9_data := router9.io.out_NI.dout
 
 
-  /*
-    io.ni_1.NI2Router_Out.ready_in := router1.io.in_NI.ready_out
-    io.ni_1.NI2Router_In.valid_in := router1.io.out_NI.valid_out
-    io.ni_1.NI2Router_In.din := router1.io.out_NI.dout
-  */
-
-
-  printf("Router 1 NI data input is %d\n", router1.io.in_NI.din )
-  printf("Router 1 East data output is %d\n", router1.io.out_E.dout )
-  printf("Router 2 West data input is %d\n", router2.io.in_W.din)
-  printf("Router 2 South data output is %d\n", router2.io.out_S.dout)
-  printf("Router 2 South valid_out output is %d\n", router2.io.out_S.valid_out )
-  printf("Router 2 South ready_in input is %d\n", router2.io.out_S.ready_in )
-
-
-  //printf("Router 4 North data ulaz je %d\n", router4.io.in_N.din )
-
-
-
-  //printf("Router 4 NI dout izlaz je %d\n", router4.io.out_NI.dout )
-  printf("Router 9 NI dout is %d\n", router9.io.out_NI.dout )
   printf("---------------------------------------------------\n")
-  //printf("Router 4 NI valid out izlaz je %d\n", router4.io.out_NI.valid_out )
-
-
 
   //kao NI
   router1.io.in_NI.din := io.ni_1_din
@@ -313,8 +288,6 @@ class noc extends MultiIOModule {
   router9.io.in_NI.din := io.ni_9_din
   router9.io.in_NI.valid_in := io.ni_9_valid_in
   router9.io.out_NI.ready_in := io.ni_9_ready_in
-
-
 
 }
 
