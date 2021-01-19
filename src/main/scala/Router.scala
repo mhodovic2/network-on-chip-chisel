@@ -76,18 +76,13 @@ class Router() extends MultiIOModule{
 
   val destination_y = dataReg(1,0)
   val destination_x = dataReg(3,2)
-  /*
-  when(destination_y > 2.U) {
-    printf("UPadnemo li ovdje ikad?\n")
-    prinft("Da")
-  }*/
-
 
 
   printf("Dest_x is %d, a dest_y is %d\n", destination_x, destination_y)
-  printf("Data Registar of router (%d,%d) is: %d\n", io.x, io.y, dataReg)
+  printf("Data Registar of router (%d,%d) is: %d, meaning %d cycles rn\n", io.x, io.y, dataReg, dataReg/16.U)
   //printf("Data Registar N of router (%d,%d) is: %d\n", io.x, io.y, dataReg_N)
-  //printf("Data Registar S of router (%d,%d) is: %d\n", io.x, io.y, dataReg_S)
+  //printf("Data Registar W of router (%d,%d) is: %d\n", io.x, io.y, dataReg_W)
+  printf("Data Registar NI of router (%d,%d) is: %d\n", io.x, io.y, dataReg_NI)
 
   printf("State registar of router (%d,%d) is: %d\n", io.x, io.y, stateReg)
 
@@ -104,54 +99,61 @@ class Router() extends MultiIOModule{
     io.out_NI.dout := 0.U
 
     when(dataReg_N =/= 0.U) {
-      dataReg := dataReg_N
+      dataReg := dataReg_N + 16.U
       dataReg_N := 0.U
       stateReg := 1.B
-    } .elsewhen(dataReg_S =/= 0.U) {
-      dataReg := dataReg_S
-      dataReg_S := 0.U
-      stateReg := 1.B
-    } .elsewhen(dataReg_E =/= 0.U) {
-      dataReg := dataReg_E
-      dataReg_E := 0.U
-      stateReg := 1.B
     } .elsewhen(dataReg_W =/= 0.U) {
-      dataReg := dataReg_W
+      dataReg := dataReg_W + 16.U
       dataReg_W := 0.U
       stateReg := 1.B
-
+    } .elsewhen(dataReg_NI =/= 0.U) {
+      dataReg := dataReg_NI + 16.U
+      dataReg_NI := 0.U
+      stateReg := 1.B
 
     } .otherwise {
       when (io.in_N.valid_in) {
         io.in_N.ready_out := 1.U
         stateReg := 1.B
-        //dataReg_N := io.in_N.din
-        dataReg := io.in_N.din
+        dataReg := io.in_N.din + 16.U
       } .elsewhen(io.in_S.valid_in) {
         io.in_S.ready_out := 1.U
         stateReg := 1.B
-        //dataReg_S := io.in_S.din
-        dataReg := io.in_S.din
+        dataReg := io.in_S.din + 16.U
       }.elsewhen(io.in_W.valid_in) {
         io.in_W.ready_out := 1.U
         stateReg := 1.B
-        //dataReg_W := io.in_W.din
-        dataReg := io.in_W.din
+        dataReg := io.in_W.din + 16.U
       }.elsewhen(io.in_E.valid_in) {
         io.in_E.ready_out := 1.U
         stateReg := 1.B
-        //dataReg_E := io.in_E.din
-        dataReg := io.in_E.din
+        dataReg := io.in_E.din + 16.U
       }.elsewhen(io.in_NI.valid_in) {
         io.in_NI.ready_out := 1.U
         stateReg := 1.B
-        //dataReg_NI := io.in_NI.din
-        dataReg := io.in_NI.din
+        dataReg := io.in_NI.din + 16.U
       }
     }
 
 
   } .elsewhen(stateReg === 1.B) {
+    dataReg := dataReg + 16.U
+    when (dataReg_N =/= 0.U) {
+      dataReg_N := dataReg_N + 16.U
+    }
+
+    when (dataReg_W =/= 0.U) {
+      dataReg_W := dataReg_W + 16.U
+    }
+
+    when (dataReg_NI =/= 0.U) {
+      dataReg_NI := dataReg_NI + 16.U
+    } .elsewhen(dataReg_NI === 0.U) {
+      when (io.in_NI.valid_in) {
+        io.in_NI.ready_out := 1.U
+        dataReg_NI := io.in_NI.din + 16.U
+      }
+    }
 
     when (destination_y > io.y) {
       printf("Should go east\n")
@@ -179,7 +181,7 @@ class Router() extends MultiIOModule{
         dataReg := 0.U
       } .elsewhen(io.in_N.valid_in) {
         io.in_N.ready_out := 1.U
-        dataReg_N := io.in_N.din
+        dataReg_N := io.in_N.din + 16.U
       }
     } .elsewhen(io.out_S.valid_out) {
       when(io.out_S.ready_in) {
@@ -194,7 +196,7 @@ class Router() extends MultiIOModule{
         dataReg := 0.U
       } .elsewhen(io.in_W.valid_in) {
         io.in_W.ready_out := 1.U
-        dataReg_W := io.in_W.din
+        dataReg_W := io.in_W.din + 16.U
       }
     } .elsewhen(io.out_E.valid_out) {
       when(io.out_E.ready_in) {

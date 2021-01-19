@@ -1,0 +1,87 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.4.4 (Private Build Java 1.8.0_275)
+[debug]       Load.loadUnit: plugins took 89.551769ms
+[debug]       Load.loadUnit: defsScala took 0.36559ms
+[debug] [Loading] Scanning directory /home/patmos/.sbt/1.0/plugins
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/patmos/.sbt/1.0/plugins, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 194.636053 ms
+[debug]           Load.resolveProject(global-plugins) took 78.138467ms
+[debug]         Load.loadTransitive: finalizeProject(Project(id global-plugins, base: /home/patmos/.sbt/1.0/plugins, plugins: List(<none>))) took 309.53725ms
+[debug] [Loading] Done in /home/patmos/.sbt/1.0/plugins, returning: (global-plugins)
+[debug]       Load.loadUnit: loadedProjectsRaw took 340.501583ms
+[debug]       Load.loadUnit: cleanEvalClasses took 0.377164ms
+[debug]     Load.loadUnit(file:/home/patmos/.sbt/1.0/plugins/, ...) took 440.42092ms
+[debug]   Load.apply: load took 647.502127ms
+[debug]   Load.apply: resolveProjects took 8.050117ms
+[debug]   Load.apply: finalTransforms took 88.513914ms
+[debug]   Load.apply: config.delegates took 7.801769ms
+[debug]   Load.apply: Def.make(settings)... took 1023.293772ms
+[debug]   Load.apply: structureIndex took 301.724018ms
+[debug]   Load.apply: mkStreams took 2.159009ms
+[info] loading global plugins from /home/patmos/.sbt/1.0/plugins
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Load.defaultLoad until apply took 6758.053917ms
+[debug]           Load.loadUnit: plugins took 50.768476ms
+[debug]           Load.loadUnit: defsScala took 0.004225ms
+[debug] [Loading] Scanning directory /home/patmos/Documents/network-on-chip-chisel/project
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/patmos/Documents/network-on-chip-chisel/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 1.978963 ms
+[debug]               Load.resolveProject(network-on-chip-chisel-build) took 1.377629ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id network-on-chip-chisel-build, base: /home/patmos/Documents/network-on-chip-chisel/project, plugins: List(<none>))) took 4.269851ms
+[debug] [Loading] Done in /home/patmos/Documents/network-on-chip-chisel/project, returning: (network-on-chip-chisel-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 18.837965ms
+[debug]           Load.loadUnit: cleanEvalClasses took 0.017336ms
+[debug]         Load.loadUnit(file:/home/patmos/Documents/network-on-chip-chisel/project/, ...) took 70.442733ms
+[debug]       Load.apply: load took 71.695861ms
+[debug]       Load.apply: resolveProjects took 0.151811ms
+[debug]       Load.apply: finalTransforms took 37.303063ms
+[debug]       Load.apply: config.delegates took 0.549458ms
+[debug]       Load.apply: Def.make(settings)... took 271.002752ms
+[debug]       Load.apply: structureIndex took 65.659105ms
+[debug]       Load.apply: mkStreams took 0.003146ms
+[info] loading project definition from /home/patmos/Documents/network-on-chip-chisel/project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 951.077747ms
+[debug]     Load.loadUnit: defsScala took 0.013374ms
+[debug] [Loading] Scanning directory /home/patmos/Documents/network-on-chip-chisel
+[debug]       Load.loadUnit: mkEval took 18.391302ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/patmos/Documents/network-on-chip-chisel, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 2.664946 ms
+[info] loading settings for project network-on-chip-chisel from build.sbt ...
+[debug]         Load.resolveProject(network-on-chip-chisel) took 7.275271ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id network-on-chip-chisel, base: /home/patmos/Documents/network-on-chip-chisel, plugins: List(<none>))) took 14.515851ms
+[debug] [Loading] Done in /home/patmos/Documents/network-on-chip-chisel, returning: (network-on-chip-chisel)
+[debug]     Load.loadUnit: loadedProjectsRaw took 238.448164ms
+[debug]     Load.loadUnit: cleanEvalClasses took 7.085802ms
+[debug]   Load.loadUnit(file:/home/patmos/Documents/network-on-chip-chisel/, ...) took 1201.548888ms
+[debug] Load.apply: load took 1207.023304ms
+[debug] Load.apply: resolveProjects took 0.137793ms
+[debug] Load.apply: finalTransforms took 19.7448ms
+[debug] Load.apply: config.delegates took 2.010078ms
+[debug] Load.apply: Def.make(settings)... took 327.933066ms
+[debug] Load.apply: structureIndex took 49.788997ms
+[debug] Load.apply: mkStreams took 0.0036ms
+[info] set current project to network-on-chip-chisel (in build file:/home/patmos/Documents/network-on-chip-chisel/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(test:runMain noc.nocTest, None, None)
